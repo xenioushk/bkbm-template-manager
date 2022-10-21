@@ -1,0 +1,77 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Templify KB - Knowledge Base Addon\n"
+"POT-Creation-Date: 2020-07-18 13:09+0600\n"
+"PO-Revision-Date: 2020-07-18 13:10+0600\n"
+"Last-Translator: \n"
+"Language-Team: BlueWindLab <hkhan.cse@gmail.com>\n"
+"Language: en_EN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3.1\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../bkbm-template-manager.php:278
+msgid "BKBM Custom Sidebar"
+msgstr ""
+
+#: ../bkbm-template-manager.php:280
+msgid "Custom Sidebars for Knowledgebase plugin"
+msgstr ""
+
+#: ../template/category/tpl-cat-content-part.php:26
+msgid "Knowledge Base Category:"
+msgstr ""
+
+#: ../template/category/tpl-cat-sidebar-part.php:21
+#: ../template/single/tpl-single-sidebar-part.php:21
+#: ../template/tag/tpl-tag-sidebar-part.php:21
+msgid "Click here"
+msgstr ""
+
+#: ../template/category/tpl-cat-sidebar-part.php:22
+#: ../template/single/tpl-single-sidebar-part.php:22
+#: ../template/tag/tpl-tag-sidebar-part.php:22
+msgid "to set sidebar widgets."
+msgstr ""
+
+#: ../template/includes/bkbm-tpl-helpers.php:53
+msgid "Knowledge Base"
+msgstr ""
+
+#: ../template/includes/bkbm-tpl-helpers.php:170
+msgid "Home"
+msgstr ""
+
+#: ../template/single/tpl-single-content-part.php:44
+msgid "Leave a reply"
+msgstr ""
+
+#: ../template/single/tpl-single-content-part.php:44
+msgid "1 Reply"
+msgstr ""
+
+#: ../template/single/tpl-single-content-part.php:44
+msgid "% Replies"
+msgstr ""
+
+#: ../template/single/tpl-single-content-part.php:51
+msgid "Continue reading"
+msgstr ""
+
+#: ../template/single/tpl-single-content-part.php:52
+msgid "Pages:"
+msgstr ""
+
+#: ../template/single/tpl-single-content-part.php:71
+msgid "Knowledgebase Navigation:"
+msgstr ""
+
+#: ../template/tag/tpl-tag-content-part.php:25
+msgid "Knowledge Base Tag:"
+msgstr ""
