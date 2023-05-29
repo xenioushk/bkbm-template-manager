@@ -7,7 +7,7 @@
  * Author: Md Mahbub Alam Khan
  * Version: 1.1.0
  * Author URI: https://1.envato.market/bkbm-wp
- * WP Requires at least: 3.6+
+ * WP Requires at least: 6.0+
  * Text Domain: bkb_tpl
  */
 
