@@ -109,7 +109,7 @@ if (!class_exists('BKBM_Template_Manager')) {
             }
 
 
-            if (class_exists('BWL_KB_Manager')  && $current_version > '1.0.6') {
+            if (class_exists('BwlKbManager\\Init')) {
 
                 return 1; // Parent KB Plugin has been installed & activated.
 
