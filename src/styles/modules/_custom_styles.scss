@@ -1,0 +1,226 @@
+/*------------------------------ Breadcrumb ---------------------------------*/
+
+div.bkbm-breadcrumbs {
+  margin: 0 0 12px;
+  overflow: hidden;
+  width: 100%;
+}
+div.bkbm-breadcrumbs ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+div.bkbm-breadcrumbs ul li {
+  /* float: left; */
+  padding: 0 13px 2px 7px;
+  line-height: 24px;
+  position: relative;
+}
+
+div.bkbm-breadcrumbs ul li:after {
+  display: inline-block;
+  position: absolute;
+  content: "\f105";
+  font-family: "FontAwesome";
+  font-size: 14px;
+  line-height: 25px;
+  right: 0px;
+  font-weight: bold;
+}
+
+div.bkbm-breadcrumbs ul li:last-child:after {
+  content: "";
+}
+div.bkbm-breadcrumbs ul li:nth-of-type(1) {
+  margin-left: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0 6px;
+  padding: 12px 0;
+  font-size: 16px;
+}
+
+div.bkbm-breadcrumbs ul li a {
+  text-decoration: none;
+  font-size: inherit;
+  color: #000;
+}
+
+div.bkbm-breadcrumbs ul li span {
+  font-size: 12px;
+  position: relative;
+  top: 1px;
+}
+
+div.cptm-breadcrumbs ul li span:last-child {
+  display: none;
+}
+
+/*------------------------------  Grid Pad Custom Margin ---------------------------------*/
+
+.bkb_tpl_custom_margin {
+  margin: 32px auto !important;
+}
+
+/*------------------------------ Template Code For Category & Tag Page ---------------------------------*/
+
+header.bkbm-single-header,
+header.bkbm-archive-header {
+  clear: both;
+}
+
+h1.bkbm-single-title,
+h1.bkbm-archive-title {
+  margin-bottom: 16px;
+  display: block;
+  font-size: inherit;
+}
+
+div.bkbm-archive-meta {
+  margin: 0 0 16px 0px;
+  font-size: inherit;
+  font-style: normal;
+  line-height: 1.5em;
+}
+
+div.bkb-taxonomy-content {
+  padding: 0 12px 0 0;
+}
+
+div.bkb-taxonomy-content .bkb-live-search-form {
+  margin-bottom: 12px;
+}
+
+div.bkb-taxonomy-content ol.rounded-list li {
+  margin: 5px 0 5px 16px;
+}
+
+div.bkb-taxonomy-content .rounded-list a,
+.rounded-list a:visited {
+  padding: 0.7em 0.4em 0.7em 2em;
+}
+
+div.bkb-taxonomy-content ol.rectangle-list li {
+  margin: 5px 0 7px 16px;
+}
+
+div.bkb-taxonomy-content .rectangle-list a,
+.rectangle-list a:visited {
+  padding: 0.5em 0.4em 0.5em 2em;
+}
+
+div.bkb-taxonomy-content .iconized-list a,
+.iconized-list a:visited {
+  padding: 0.3em 0em 0.3em 0em;
+}
+
+div.bkb-taxonomy-content ol.none-list li {
+  margin: 5px 0 12px 0px;
+}
+
+div.bkb-taxonomy-content .none-list a,
+.none-list a:visited {
+  padding: 0.3em 0em 0.3em 0em;
+}
+
+/*------------------------------ Template Code For Single Page ---------------------------------*/
+
+header.bkbm-single-header div.bkbm-featured-img-container {
+  display: block;
+  margin-bottom: 24px;
+  clear: both;
+  box-sizing: border-box;
+}
+
+header.bkbm-single-header div.bkbm-featured-img-container img {
+  max-width: 100%;
+  border: 0px;
+  border-radius: 0px;
+}
+
+div.bkbm-entry-content {
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  word-wrap: break-word;
+  line-height: 2em;
+  font-size: inherit;
+  font-family: inherit;
+  padding-right: 12px;
+}
+
+div.bkbm-entry-content img {
+  max-width: 100%;
+}
+
+div.bkbm-entry-content a,
+.comment-content a {
+  color: inherit;
+}
+
+div.bkbm-entry-content a:hover,
+.comment-content a:hover {
+  color: inherit;
+}
+
+div.bkbm-entry-content blockquote {
+  font-size: 24px;
+}
+
+div.bkbm-entry-content blockquote cite,
+div.bkbm-entry-content blockquote small {
+  font-size: 16px;
+}
+
+div.bkbm-entry-content img.alignleft,
+div.bkbm-entry-content .wp-caption.alignleft {
+  margin-left: -60px;
+}
+
+div.bkbm-entry-content img.alignright,
+div.bkbm-entry-content .wp-caption.alignright {
+  margin-right: -60px;
+}
+
+/*------------------------------ Widget Area ---------------------------------*/
+
+aside.bkb-custom-sidebar {
+  line-height: 24px;
+  margin-bottom: 24px;
+}
+
+aside.bkb-custom-sidebar .widget-title {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+aside.bkb-custom-sidebar a {
+  font-size: inherit;
+  line-height: 24px;
+  color: inherit;
+}
+
+aside.bkb-custom-sidebar ul.bkb-widget li {
+  margin: 12px 0;
+}
+
+/*------------------------------ Post Navigation Style  ---------------------------------*/
+
+.nav-single {
+  margin: 24px 0 !important;
+}
+.nav-single h3 {
+  margin: 24px 0;
+  border-bottom: 1px solid #eeeeee;
+  padding: 0 0 24px 0;
+}
+
+/*------------------------------  Responsive ---------------------------------*/
+
+@media only screen and (min-width: 0px) and (max-width: 479px) {
+  /*.bkb-tpl-sidebar-pad{ padding: 6px !important; }*/
+}
+@media only screen and (min-width: 480px) and (max-width: 1000px) {
+}

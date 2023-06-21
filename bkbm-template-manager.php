@@ -189,8 +189,7 @@ if (!class_exists('BKBM_Template_Manager')) {
             if ($bkb_tpl_stylesheet == 0) {
 
                 // Enqueue Stylesheet.
-                wp_enqueue_style('bkbm-grid-styles');
-                wp_enqueue_style('bkbm-template-custom-styles');
+                wp_enqueue_style('bkbm-tpl-frontend');
             }
 
             //Load Category Template.
@@ -245,8 +244,7 @@ if (!class_exists('BKBM_Template_Manager')) {
             if ($bkb_tpl_stylesheet == 0) {
 
                 // Enqueue Stylesheet.
-                wp_enqueue_style('bkbm-grid-styles');
-                wp_enqueue_style('bkbm-template-custom-styles');
+                wp_enqueue_style('bkbm-tpl-frontend');
             }
 
             if ($post->post_type == "bwl_kb") {
@@ -309,8 +307,7 @@ if (!class_exists('BKBM_Template_Manager')) {
         {
 
             if (!is_admin()) {
-                wp_register_style('bkbm-grid-styles', plugins_url('css/bkbm-template-grid-styles.css', __FILE__), array(), BWL_KB_TPL_PLUGIN_VERSION);
-                wp_register_style('bkbm-template-custom-styles', plugins_url('css/bkbm-template-custom-styles.css', __FILE__), array(), BWL_KB_TPL_PLUGIN_VERSION);
+                wp_register_style('bkbm-tpl-frontend', plugins_url('assets/styles/frontend.css', __FILE__), array(), BWL_KB_TPL_PLUGIN_VERSION);
             }
         }
     }
