@@ -1,33 +1,16 @@
-<<<<<<< HEAD
-image: docker:latest
-
-=======
->>>>>>> main
 variables:
   FTP_SHOST: ftp.bluewindlab.com
   FTP_SUSERNAME: u168445203.projects_staging
   FTP_HOST: ftp.bluewindlab.net
   FTP_PUSERNAME: u138608855.projects_production
-<<<<<<< HEAD
-  BUILD_DIR: /builds/bkbm-addon/templify-kb-addon
-  DEPLOY_DIR: bkbm/wp-content/plugins/bkbm-template-manager
-stages:
-=======
   BUILD_DIR: /home/gitlab-runner/builds/$CI_RUNNER_SHORT_TOKEN/0/bkbm-addon/templify-kb-addon/
   DEPLOY_DIR: bkbm/wp-content/plugins/bkbm-template-managers
 stages:
   - build
->>>>>>> main
   - staging
   - production
 
 before_script:
-<<<<<<< HEAD
-  - apk add lftp
-
-staging:
-  stage: staging
-=======
   - sudo apt-get install -y lftp && sudo apt-get install -y npm && sudo apt-get install -y curl
 
 build:
@@ -58,7 +41,6 @@ staging:
   stage: staging
   dependencies:
     - build
->>>>>>> main
   only:
     - staging
   tags:
@@ -66,30 +48,19 @@ staging:
     - devops
   script:
     - pwd
-<<<<<<< HEAD
-=======
     - echo "Updating plugin files.."
->>>>>>> main
     - lftp -e "set ssl:verify-certificate no; open $FTP_SHOST; user $FTP_SUSERNAME $FTP_SPASSWORD; mirror -X .* -X .*/ --reverse --verbose $BUILD_DIR /wpplugins/$DEPLOY_DIR; bye"
 
 production:
   stage: production
-<<<<<<< HEAD
-  only:
-    - main
-=======
   dependencies:
     - build
   only:
     - production
->>>>>>> main
   tags:
     - ci
     - devops
   script:
     - pwd
-<<<<<<< HEAD
-=======
     - echo "Updating plugin files.."
->>>>>>> main
     - lftp -e "set ssl:verify-certificate no; open $FTP_HOST; user $FTP_PUSERNAME $FTP_PPASSWORD; mirror -X .* -X .*/ --reverse --verbose $BUILD_DIR /wpplugin/$DEPLOY_DIR; bye"
