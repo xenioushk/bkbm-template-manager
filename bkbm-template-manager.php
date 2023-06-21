@@ -133,10 +133,26 @@ if (!class_exists('BKBM_Template_Manager')) {
 
             global $bkb_data;
 
-            if (!is_admin() && is_tax('bkb_category') && $query->is_main_query()  && isset($bkb_data['bkb_cat_pagination_conditinal_fields']) && isset($bkb_data['bkb_cat_pagination_conditinal_fields']['enabled']) && $bkb_data['bkb_cat_pagination_conditinal_fields']['enabled'] == 'on' && is_numeric($bkb_data['bkb_cat_pagination_conditinal_fields']['bkb_cat_tpl_ipp'])) {
+            if (
+                !is_admin() &&
+                is_tax('bkb_category') &&
+                $query->is_main_query()  &&
+                isset($bkb_data['bkb_cat_pagination_conditinal_fields']) &&
+                isset($bkb_data['bkb_cat_pagination_conditinal_fields']['enabled']) &&
+                $bkb_data['bkb_cat_pagination_conditinal_fields']['enabled'] == 'on' &&
+                is_numeric($bkb_data['bkb_cat_pagination_conditinal_fields']['bkb_cat_tpl_ipp'])
+            ) {
 
                 $query->set('posts_per_page', $bkb_data['bkb_cat_pagination_conditinal_fields']['bkb_cat_tpl_ipp']);
-            } else if (!is_admin() && is_tax('bkb_tags') && $query->is_main_query() && isset($bkb_data['bkb_tag_pagination_conditinal_fields']) && isset($bkb_data['bkb_tag_pagination_conditinal_fields']['enabled']) && $bkb_data['bkb_tag_pagination_conditinal_fields']['enabled'] == 'on' && is_numeric($bkb_data['bkb_tag_pagination_conditinal_fields']['bkb_tag_tpl_ipp'])) {
+            } else if (
+                !is_admin() &&
+                is_tax('bkb_tags') &&
+                $query->is_main_query() &&
+                isset($bkb_data['bkb_tag_pagination_conditinal_fields']) &&
+                isset($bkb_data['bkb_tag_pagination_conditinal_fields']['enabled']) &&
+                $bkb_data['bkb_tag_pagination_conditinal_fields']['enabled'] == 'on' &&
+                is_numeric($bkb_data['bkb_tag_pagination_conditinal_fields']['bkb_tag_tpl_ipp'])
+            ) {
 
                 $query->set('posts_per_page', $bkb_data['bkb_tag_pagination_conditinal_fields']['bkb_tag_tpl_ipp']);
             } else {
