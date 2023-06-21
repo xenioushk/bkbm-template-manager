@@ -109,7 +109,11 @@ if (!class_exists('BKBM_Template_Manager')) {
             }
 
 
+<<<<<<< HEAD
             if (class_exists('BWL_KB_Manager')  && $current_version > '1.0.6') {
+=======
+            if (class_exists('BwlKbManager\\Init')) {
+>>>>>>> main
 
                 return 1; // Parent KB Plugin has been installed & activated.
 
@@ -133,10 +137,33 @@ if (!class_exists('BKBM_Template_Manager')) {
 
             global $bkb_data;
 
+<<<<<<< HEAD
             if (!is_admin() && is_tax('bkb_category') && $query->is_main_query()  && isset($bkb_data['bkb_cat_pagination_conditinal_fields']) && isset($bkb_data['bkb_cat_pagination_conditinal_fields']['enabled']) && $bkb_data['bkb_cat_pagination_conditinal_fields']['enabled'] == 'on' && is_numeric($bkb_data['bkb_cat_pagination_conditinal_fields']['bkb_cat_tpl_ipp'])) {
 
                 $query->set('posts_per_page', $bkb_data['bkb_cat_pagination_conditinal_fields']['bkb_cat_tpl_ipp']);
             } else if (!is_admin() && is_tax('bkb_tags') && $query->is_main_query() && isset($bkb_data['bkb_tag_pagination_conditinal_fields']) && isset($bkb_data['bkb_tag_pagination_conditinal_fields']['enabled']) && $bkb_data['bkb_tag_pagination_conditinal_fields']['enabled'] == 'on' && is_numeric($bkb_data['bkb_tag_pagination_conditinal_fields']['bkb_tag_tpl_ipp'])) {
+=======
+            if (
+                !is_admin() &&
+                is_tax('bkb_category') &&
+                $query->is_main_query()  &&
+                isset($bkb_data['bkb_cat_pagination_conditinal_fields']) &&
+                isset($bkb_data['bkb_cat_pagination_conditinal_fields']['enabled']) &&
+                $bkb_data['bkb_cat_pagination_conditinal_fields']['enabled'] == 'on' &&
+                is_numeric($bkb_data['bkb_cat_pagination_conditinal_fields']['bkb_cat_tpl_ipp'])
+            ) {
+
+                $query->set('posts_per_page', $bkb_data['bkb_cat_pagination_conditinal_fields']['bkb_cat_tpl_ipp']);
+            } else if (
+                !is_admin() &&
+                is_tax('bkb_tags') &&
+                $query->is_main_query() &&
+                isset($bkb_data['bkb_tag_pagination_conditinal_fields']) &&
+                isset($bkb_data['bkb_tag_pagination_conditinal_fields']['enabled']) &&
+                $bkb_data['bkb_tag_pagination_conditinal_fields']['enabled'] == 'on' &&
+                is_numeric($bkb_data['bkb_tag_pagination_conditinal_fields']['bkb_tag_tpl_ipp'])
+            ) {
+>>>>>>> main
 
                 $query->set('posts_per_page', $bkb_data['bkb_tag_pagination_conditinal_fields']['bkb_tag_tpl_ipp']);
             } else {
@@ -334,4 +361,8 @@ if (!class_exists('BKBM_Template_Manager')) {
 
         return apply_filters('rc_repl_template_' . $template, $file);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> main
