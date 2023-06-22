@@ -15,7 +15,6 @@ if (!class_exists('BKBM_Template_Manager')) {
 
     class BKBM_Template_Manager
     {
-
         function __construct()
         {
 
