@@ -1,0 +1,59 @@
+/*--- Breadcrumb ---*/
+
+.bkbm-breadcrumbs {
+  margin: 0 0 12px;
+  display: flex;
+  flex-wrap: wrap;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      padding: 0 13px 2px 7px;
+      line-height: 24px;
+      position: relative;
+
+      a {
+        text-decoration: none;
+        font-size: inherit;
+        color: #000;
+      }
+
+      span {
+        font-size: 12px;
+        position: relative;
+        top: 1px;
+      }
+
+      &:after {
+        display: inline-block;
+        position: absolute;
+        content: "\f105";
+        font-family: "FontAwesome";
+        font-size: 14px;
+        line-height: 25px;
+        right: 0px;
+        font-weight: bold;
+      }
+
+      &:last-child {
+        margin: 0;
+        &:after {
+          content: "";
+        }
+      }
+
+      &:nth-of-type(1) {
+        margin-left: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0 6px;
+        padding: 12px 0;
+        font-size: 16px;
+      }
+    }
+  }
+}
