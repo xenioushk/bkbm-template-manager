@@ -1,69 +1,10 @@
-/*------------------------------ Breadcrumb ---------------------------------*/
-
-div.bkbm-breadcrumbs {
-  margin: 0 0 12px;
-  overflow: hidden;
-  width: 100%;
-}
-div.bkbm-breadcrumbs ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-div.bkbm-breadcrumbs ul li {
-  /* float: left; */
-  padding: 0 13px 2px 7px;
-  line-height: 24px;
-  position: relative;
-}
-
-div.bkbm-breadcrumbs ul li:after {
-  display: inline-block;
-  position: absolute;
-  content: "\f105";
-  font-family: "FontAwesome";
-  font-size: 14px;
-  line-height: 25px;
-  right: 0px;
-  font-weight: bold;
-}
-
-div.bkbm-breadcrumbs ul li:last-child:after {
-  content: "";
-}
-div.bkbm-breadcrumbs ul li:nth-of-type(1) {
-  margin-left: 0;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0 6px;
-  padding: 12px 0;
-  font-size: 16px;
-}
-
-div.bkbm-breadcrumbs ul li a {
-  text-decoration: none;
-  font-size: inherit;
-  color: #000;
-}
-
-div.bkbm-breadcrumbs ul li span {
-  font-size: 12px;
-  position: relative;
-  top: 1px;
-}
-
-div.cptm-breadcrumbs ul li span:last-child {
-  display: none;
-}
-
-/*------------------------------  Grid Pad Custom Margin ---------------------------------*/
+/*---  Grid Pad Custom Margin ---*/
 
 .bkb_tpl_custom_margin {
   margin: 32px auto !important;
 }
 
-/*------------------------------ Template Code For Category & Tag Page ---------------------------------*/
+/*--- Template Code For Category & Tag Page ---*/
 
 header.bkbm-single-header,
 header.bkbm-archive-header {
@@ -74,7 +15,8 @@ h1.bkbm-single-title,
 h1.bkbm-archive-title {
   margin-bottom: 16px;
   display: block;
-  font-size: inherit;
+  font-size: 28px;
+  line-height: 32px;
 }
 
 div.bkbm-archive-meta {
@@ -124,7 +66,7 @@ div.bkb-taxonomy-content .none-list a,
   padding: 0.3em 0em 0.3em 0em;
 }
 
-/*------------------------------ Template Code For Single Page ---------------------------------*/
+/*--- Template Code For Single Page ---*/
 
 header.bkbm-single-header div.bkbm-featured-img-container {
   display: block;
@@ -184,7 +126,7 @@ div.bkbm-entry-content .wp-caption.alignright {
   margin-right: -60px;
 }
 
-/*------------------------------ Widget Area ---------------------------------*/
+/*--- Widget Area ---*/
 
 aside.bkb-custom-sidebar {
   line-height: 24px;
@@ -206,7 +148,7 @@ aside.bkb-custom-sidebar ul.bkb-widget li {
   margin: 12px 0;
 }
 
-/*------------------------------ Post Navigation Style  ---------------------------------*/
+/*--- Post Navigation Style  ---*/
 
 .nav-single {
   margin: 24px 0 !important;
@@ -217,7 +159,7 @@ aside.bkb-custom-sidebar ul.bkb-widget li {
   padding: 0 0 24px 0;
 }
 
-/*------------------------------  Responsive ---------------------------------*/
+/*---  Responsive ---*/
 
 @media only screen and (min-width: 0px) and (max-width: 479px) {
   /*.bkb-tpl-sidebar-pad{ padding: 6px !important; }*/

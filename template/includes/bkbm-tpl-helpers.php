@@ -1,13 +1,6 @@
 <?php
 
-
-/***********************************************************
- * @Description: KB Custom Breadcrumbs
- * @Since: 1.0.1
- * @Created At: 24-06-2015
- * @Last Edited AT: 24-06-2015 
- * @Created By: Mahbub
- ***********************************************************/
+// KB Custom Breadcrumb
 
 function category_has_parent($catid)
 {
@@ -148,7 +141,8 @@ function bkbm_breadcrumbs()
         $bkbm_post_title = get_the_title();
 
         if (strlen($bkbm_post_title) >= 70) {
-            $bkbm_post_title = substr($bkbm_post_title, 0, 70) . "....";
+            // $bkbm_post_title = substr($bkbm_post_title, 0, 70) . "....";
+            $bkbm_post_title = $bkbm_post_title;
         }
 
         $bkb_additional_url .= $bkbm_category_name . '<span class="' . $bkb_breadcrumb_icon . '"></span>' . $bkbm_post_title;
@@ -171,13 +165,7 @@ function bkbm_breadcrumbs()
 add_shortcode('bkbm_tpl_bc', 'bkbm_breadcrumbs');
 
 
-/***********************************************************
- * @Description: KB Categories & Topics Pagination
- * @Since: 1.0.1
- * @Created At: 06-11-2015 
- * @Last Edited AT: 06-11-2015
- * @Created By: Mahbub
- ***********************************************************/
+// KB Categories & Topics Pagination
 
 if (!function_exists('bkb_tpl_pagination')) :
 
