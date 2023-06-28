@@ -1,0 +1,57 @@
+/*--- Template Code For Single Page ---*/
+
+header.bkbm-single-header div.bkbm-featured-img-container {
+  display: block;
+  margin-bottom: 24px;
+  clear: both;
+  box-sizing: border-box;
+}
+
+header.bkbm-single-header div.bkbm-featured-img-container img {
+  max-width: 100%;
+  border: 0px;
+  border-radius: 0px;
+}
+
+div.bkbm-entry-content {
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  word-wrap: break-word;
+  line-height: 1.6rem;
+  font-size: inherit;
+  font-family: inherit;
+  padding-right: 12px;
+}
+
+div.bkbm-entry-content img {
+  max-width: 100%;
+}
+
+div.bkbm-entry-content a,
+.comment-content a {
+  color: inherit;
+}
+
+div.bkbm-entry-content a:hover,
+.comment-content a:hover {
+  color: inherit;
+}
+
+div.bkbm-entry-content blockquote {
+  font-size: 24px;
+}
+
+div.bkbm-entry-content blockquote cite,
+div.bkbm-entry-content blockquote small {
+  font-size: 16px;
+}
+
+div.bkbm-entry-content img.alignleft,
+div.bkbm-entry-content .wp-caption.alignleft {
+  margin-left: -60px;
+}
+
+div.bkbm-entry-content img.alignright,
+div.bkbm-entry-content .wp-caption.alignright {
+  margin-right: -60px;
+}

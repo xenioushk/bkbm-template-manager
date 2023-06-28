@@ -1,6 +1,9 @@
 @import "base/variables";
 @import "../shared/mixins/mixins.scss";
 @import "base/global";
-@import "modules/grid";
 @import "modules/breadcrumbs";
-@import "modules/custom_styles";
+@import "modules/taxonomy";
+@import "modules/single";
+@import "modules/navigation";
+@import "modules/widgets";
+@import "modules/responsive";

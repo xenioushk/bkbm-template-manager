@@ -213,14 +213,13 @@ add_action('bkbm_before_main_content', 'bkbm_before_main_content');
 function bkbm_before_main_content()
 {
 
-
     if (BKBM_BOOTSTRAP_FRAMEWORK == 1) {
 
         $content_string = '<div class="container bkb_tpl_custom_margin">
             <div class="row">';
     } else {
 
-        $content_string = '<div class="grid grid-pad bkb_tpl_custom_margin">';
+        $content_string = '<div class="grid grid-pad bwl-row-cols-2-1 bkb_tpl_custom_margin">';
     }
 
     echo $content_string;
