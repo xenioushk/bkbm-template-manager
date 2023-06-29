@@ -1,5 +1,8 @@
 <?php
 
+
+use \BwlKbManager\Base\BaseController;
+
 // KB Custom Breadcrumb
 
 function category_has_parent($catid)
@@ -18,29 +21,16 @@ function category_has_parent($catid)
 function bkbm_breadcrumbs()
 {
 
-    global $post, $bkb_data;
+    $baseController = new BaseController();
 
-    $post_ID = 0;
-
-    if (!empty($post)) {
-        $post_ID = $post->ID;
-    }
-
-    $bkb_breadcrumb_conditinal_fields = 1;
-
-    if (isset($bkb_data['bkb_breadcrumb_conditinal_fields']['enabled']) && $bkb_data['bkb_breadcrumb_conditinal_fields']['enabled'] == "") {
-
-        $bkb_breadcrumb_conditinal_fields = 0;
-
-        return '';
+    if (
+        isset($baseController->bkb_data['bkb_breadcrumb_conditinal_fields']['enabled']) &&
+        $baseController->bkb_data['bkb_breadcrumb_conditinal_fields']['enabled'] == ""
+    ) {
+        return "";
     }
 
     $bkb_breadcrumb_icon = 'fa fa-chevron-right';
-
-    if (isset($bkb_data['bkb_rtrl_support']) && $bkb_data['bkb_rtrl_support'] == 1) {
-
-        $bkb_breadcrumb_icon = 'fa fa-chevron-left';
-    }
 
     // Breadcrumb initialization.
 
@@ -50,115 +40,95 @@ function bkbm_breadcrumbs()
     $bkb_additional_url = "";
 
     //Home Page Title Section.
-    if (isset($bkb_data['bkb_breadcrumb_conditinal_fields']['bkb_home_page_title']) && $bkb_data['bkb_breadcrumb_conditinal_fields']['bkb_home_page_title'] != "" && $bkb_home_page_title != $bkb_data['bkb_breadcrumb_conditinal_fields']['bkb_home_page_title']) {
+    if (
+        isset($baseController->bkb_data['bkb_breadcrumb_conditinal_fields']['bkb_home_page_title']) &&
+        $baseController->bkb_data['bkb_breadcrumb_conditinal_fields']['bkb_home_page_title'] != "" &&
+        $bkb_home_page_title != $baseController->bkb_data['bkb_breadcrumb_conditinal_fields']['bkb_home_page_title']
+    ) {
 
-        $bkb_home_page_title = $bkb_data['bkb_breadcrumb_conditinal_fields']['bkb_home_page_title'];
+        $bkb_home_page_title = $baseController->bkb_data['bkb_breadcrumb_conditinal_fields']['bkb_home_page_title'];
     }
 
     // Home Page Slug Section.
-    if (isset($bkb_data['bkb_breadcrumb_conditinal_fields']['bkb_home_page_slug']) && $bkb_data['bkb_breadcrumb_conditinal_fields']['bkb_home_page_slug'] != "") {
+    if (
+        isset($baseController->bkb_data['bkb_breadcrumb_conditinal_fields']['bkb_home_page_slug']) &&
+        $baseController->bkb_data['bkb_breadcrumb_conditinal_fields']['bkb_home_page_slug'] != ""
+    ) {
 
-        $bkb_home_page_slug = $bkb_data['bkb_breadcrumb_conditinal_fields']['bkb_home_page_slug'];
+        $bkb_home_page_slug = $baseController->bkb_data['bkb_breadcrumb_conditinal_fields']['bkb_home_page_slug'];
         $bkb_home_page_html .= '<a href="' . home_url() . '/' . $bkb_home_page_slug . '">' . $bkb_home_page_title . '</a> <span class="' . $bkb_breadcrumb_icon . '"></span> ';
     }
 
-    if (is_tax('bkb_category') && $bkb_breadcrumb_conditinal_fields == 1) {
+    $bkb_additional_url = getBkbBreadcrumbElements($baseController);
 
-        $bkbm_cat_id = get_queried_object()->term_id;
-
-        //        $bkb_taxonomy_term = get_the_terms($post_ID, 'bkb_category');
-        //        echo "<pre>";
-        //        print_r($bkb_taxonomy_term);
-        //        echo "</pre>";
-
-        // Added in version 1.0.6
-
-        if (defined('CPTP_VERSION')) {
-
-            $args = array(
-                'separator' => '<span class="' . $bkb_breadcrumb_icon . '"></span>'
-            );
-            $bkbm_category_name = get_term_parents_list($bkbm_cat_id, 'bkb_category', $args);
-            $bkbm_cptp_breadcrumb_class = " cptm-breadcrumbs";
-        } else {
-
-            $bkbm_category_link = get_term_link($bkbm_cat_id, 'bkb_category');
-            $bkbm_category_title = get_queried_object()->name;
-            $bkbm_category_name = sprintf('<a href="%s">%s</a>', $bkbm_category_link, $bkbm_category_title);
-            $bkbm_cptp_breadcrumb_class = "";
-        }
-
-        $bkb_additional_url .= $bkbm_category_name;
-    } elseif (is_tax('bkb_tags') && $bkb_breadcrumb_conditinal_fields == 1) {
-
-        $bkbm_tag_id = get_queried_object()->term_id;
-
-        //        $bkb_taxonomy_term = get_the_terms($post_ID, 'bkb_tags');
-
-        // Added in version 1.0.6
-
-        if (defined('CPTP_VERSION')) {
-
-            $args = array(
-                'separator' => '<span class="' . $bkb_breadcrumb_icon . '"></span>'
-            );
-            //            $bkbm_tag_name = get_term_parents_list($bkb_taxonomy_term[0]->term_id, 'bkb_tags', $args);
-            $bkbm_tag_name = get_term_parents_list($bkbm_tag_id, 'bkb_tags', $args);
-
-            $bkbm_cptp_breadcrumb_class = " cptm-breadcrumbs";
-        } else {
-
-            $bkbm_tag_link = get_term_link($bkbm_tag_id, 'bkb_tags');
-            $bkbm_tag_title = get_queried_object()->name;
-            $bkbm_tag_name = sprintf('<a href="%s">%s</a>', $bkbm_tag_link, $bkbm_tag_title);
-            $bkbm_cptp_breadcrumb_class = "";
-        }
-
-        $bkb_additional_url .= $bkbm_tag_name;
-    } elseif (is_singular('bwl_kb') && $bkb_breadcrumb_conditinal_fields == 1) {
-
-        $bkb_taxonomy_term = get_the_terms($post->ID, 'bkb_category');
-
-        // Added in version 1.0.6
-
-        //            if( class_exists( 'CPTP' ) ) {
-        if (defined('CPTP_VERSION')) {
-
-            $args = array(
-                'separator' => '<span class="' . $bkb_breadcrumb_icon . '"></span>'
-            );
-            $bkbm_category_name = get_term_parents_list($bkb_taxonomy_term[0]->term_id, 'bkb_category', $args);
-
-            $bkbm_cptp_breadcrumb_class = " cptm-breadcrumbs";
-        } else {
-
-            $bkbm_category_link = get_term_link($bkb_taxonomy_term[0]->term_id, 'bkb_category');
-            $bkbm_category_title = $bkb_taxonomy_term[0]->name;
-            $bkbm_category_name   = sprintf('<a href="%s">%s</a>', $bkbm_category_link, $bkbm_category_title);
-            $bkbm_cptp_breadcrumb_class = "";
-        }
-
-        $bkbm_post_title = get_the_title();
-
-        if (strlen($bkbm_post_title) >= 70) {
-            // $bkbm_post_title = substr($bkbm_post_title, 0, 70) . "....";
-            $bkbm_post_title = $bkbm_post_title;
-        }
-
-        $bkb_additional_url .= $bkbm_category_name . '<span class="' . $bkb_breadcrumb_icon . '"></span>' . $bkbm_post_title;
-    }
-
-    $bkbm_breadcrumbs_html = '<div class="bkbm-breadcrumbs' . $bkbm_cptp_breadcrumb_class . '">
+    $bkbm_breadcrumbs_html = '<div class="bkbm-breadcrumbs">
                     <ul>
                         <li>
                         <a href="' . esc_url(home_url('/')) . '" title="' . __('Home', 'bkb_tpl') . '">' . __('Home', 'bkb_tpl') . '</a> <span class="' . $bkb_breadcrumb_icon . '"></span> 
-                        ' . $bkb_home_page_html
-        . $bkb_additional_url . '</li>
+                        ' . $bkb_home_page_html . $bkb_additional_url . '</li>
                     </ul>
                 </div>';
 
     return $bkbm_breadcrumbs_html;
 }
+
+
+function getBkbBreadcrumbElements($baseController)
+{
+
+    $bkb_breadcrumb_icon = 'fa fa-chevron-right';
+    $current_url = $_SERVER['REQUEST_URI'];
+    $url_parts = explode('/', $current_url);
+
+    $breadcrumb = '';
+
+    // Remove empty parts and the first element (domain)
+    $url_parts = array_filter($url_parts);
+    array_shift($url_parts);
+
+    // Retrieve the "knowledgebase" part
+    $knowledgebase_index = array_search($baseController->plugin_cpt_custom_slug, $url_parts);
+
+    // Remove the parts before "knowledgebase"
+    if ($knowledgebase_index !== false) {
+        $url_parts = array_slice($url_parts, $knowledgebase_index + 1);
+    }
+
+    $category = '';
+    $subcategories = [];
+
+
+    foreach ($url_parts as $url_part) {
+        $term = get_term_by('slug', $url_part, $baseController->plugin_cpt_tax_category);
+
+        if ($term && !is_wp_error($term)) {
+            if (empty($category)) {
+                $category = $term;
+            } else {
+                $subcategories[] = $term;
+            }
+        }
+    }
+
+    if (!empty($category)) {
+        $breadcrumb .= '<a href="' . esc_url(get_term_link($category)) . '">' . esc_html($category->name) . '</a>';
+
+        foreach ($subcategories as $subcategory) {
+            if ($subcategory->parent === $category->term_id) {
+                $breadcrumb .= '<span class="' . $bkb_breadcrumb_icon . '"></span><a href="' . esc_url(get_term_link($subcategory)) . '">' . esc_html($subcategory->name) . '</a>';
+                $category = $subcategory; // Set current subcategory as the new category for the next iteration
+            }
+        }
+    }
+
+    if (is_singular($baseController->plugin_post_type)) {
+        $breadcrumb .= '<span class="' . $bkb_breadcrumb_icon . '"></span>' . get_the_title();
+    }
+
+    return $breadcrumb;
+}
+
+
 
 // Shortcode Feature added in version 1.0.1
 
