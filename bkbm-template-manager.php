@@ -42,7 +42,7 @@ if (!class_exists('BKBM_Template_Manager')) {
                 define('BKBTPL_PARENT_PLUGIN_INSTALLED_VERSION', get_option('bwl_kb_plugin_version')); // 
                 define('BKBTPL_ADDON_PARENT_PLUGIN_TITLE', '<b>BWL Knowledge Base Manager Plugin</b> ');
                 define('BKBTPL_ADDON_TITLE', '<b>Templify KB</b>');
-                define('BKBTPL_PARENT_PLUGIN_REQUIRED_VERSION', '1.0.9'); // change plugin required version in here.
+                define('BKBTPL_PARENT_PLUGIN_REQUIRED_VERSION', '1.4.2'); // change plugin required version in here.
                 define('BKBTPL_ADDON_CURRENT_VERSION', BWL_KB_TPL_PLUGIN_VERSION); // change plugin current version in here.
 
                 add_action('admin_notices', array($this, 'bkb_tpl_version_update_admin_notice'));
