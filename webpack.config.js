@@ -17,8 +17,8 @@ module.exports = {
   entry: {
     frontend: path.resolve(__dirname, "src", "index.js"), // for the front end.
     frontend_rtl: path.resolve(__dirname, "src", "index_rtl.js"), // for the front end.
-    // admin: path.resolve(__dirname, "src/admin/", "admin_index.js"), // for the admin panel.
-    // admin_rtl: path.resolve(__dirname, "src/admin/", "admin_index_rtl.js"), // for the admin panel.
+    admin: path.resolve(__dirname, "src/admin/", "admin_index.js"), // for the admin panel.
+    admin_rtl: path.resolve(__dirname, "src/admin/", "admin_index_rtl.js"), // for the admin panel.
   },
   output: {
     path: path.resolve(__dirname, "assets"),

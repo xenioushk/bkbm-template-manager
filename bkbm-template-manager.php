@@ -48,7 +48,8 @@ if (!class_exists('BKBM_Template_Manager')) {
 
                 add_action('admin_notices', array($this, 'bkb_tpl_version_update_admin_notice'));
 
-                $this->enqueue_plugin_scripts(); // Added custom wiidget area for Addon. @Introduced in version 1.0.1
+                add_action('wp_enqueue_scripts', array($this, 'bkb_tpl_enqueue_scripts'));
+                add_action('admin_enqueue_scripts', array($this, 'bkb_tpl_admin_enqueue_scripts'));
 
                 $this->included_files($bkb_data); // Include all the required files for Addon.
                 $this->bkbm_template_sidebars(); // Added custom wiidget area for Addon. @Introduced in version 1.0.1
@@ -301,16 +302,28 @@ if (!class_exists('BKBM_Template_Manager')) {
 
                 include_once dirname(__FILE__) . '/template/includes/bkbm-tpl-helpers.php';
             }
+
             require_once dirname(__FILE__) . '/includes/autoupdater/WpAutoUpdater.php';
             require_once dirname(__FILE__) . '/includes/autoupdater/updater.php';
+            require_once dirname(__FILE__) . '/includes/autoupdater/installer.php';
         }
 
-        function enqueue_plugin_scripts()
+        function bkb_tpl_enqueue_scripts()
         {
+            wp_register_style('bkbm-tpl-frontend', plugins_url('assets/styles/frontend.css', __FILE__), array(), BWL_KB_TPL_PLUGIN_VERSION);
+        }
 
-            if (!is_admin()) {
-                wp_register_style('bkbm-tpl-frontend', plugins_url('assets/styles/frontend.css', __FILE__), array(), BWL_KB_TPL_PLUGIN_VERSION);
-            }
+        function bkb_tpl_admin_enqueue_scripts()
+        {
+            wp_enqueue_script('bkbm-tpl-admin', plugins_url('assets/scripts/admin.js', __FILE__), ['jquery'], BWL_KB_TPL_PLUGIN_VERSION, TRUE);
+            wp_localize_script(
+                'bkbm-tpl-admin',
+                'BkbmTplAdminData',
+                [
+                    'product_id' => 11888104,
+                    'installation' => get_option('bkbm_tpl_installation')
+                ]
+            );
         }
     }
 
