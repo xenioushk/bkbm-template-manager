@@ -44,6 +44,7 @@ if (!class_exists('BKBM_Template_Manager')) {
                 define('BKBTPL_ADDON_TITLE', '<b>Templify KB</b>');
                 define('BKBTPL_PARENT_PLUGIN_REQUIRED_VERSION', '1.4.2'); // change plugin required version in here.
                 define('BKBTPL_ADDON_CURRENT_VERSION', BWL_KB_TPL_PLUGIN_VERSION); // change plugin current version in here.
+                define('BKBTPL_ADDON_UPDATER_SLUG', plugin_basename(__FILE__)); // change plugin current version in here.
 
                 add_action('admin_notices', array($this, 'bkb_tpl_version_update_admin_notice'));
 
@@ -300,6 +301,8 @@ if (!class_exists('BKBM_Template_Manager')) {
 
                 include_once dirname(__FILE__) . '/template/includes/bkbm-tpl-helpers.php';
             }
+            require_once dirname(__FILE__) . '/includes/autoupdater/WpAutoUpdater.php';
+            require_once dirname(__FILE__) . '/includes/autoupdater/updater.php';
         }
 
         function enqueue_plugin_scripts()
