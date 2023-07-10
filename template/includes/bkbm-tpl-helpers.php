@@ -189,7 +189,7 @@ function bkbm_before_main_content()
             <div class="row">';
     } else {
 
-        $content_string = '<div class="grid grid-pad bwl-row-cols-2-1 bkb_tpl_custom_margin">';
+        $content_string = '<div class="bkbm-grid bkbm-grid-pad bwl-row-cols-2-1 bkb_tpl_custom_margin">';
     }
 
     echo $content_string;

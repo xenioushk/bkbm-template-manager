@@ -72,7 +72,7 @@ if ($bkb_single_tpl_layout == 2) {
         $bkb_kb_nav_box_title = (isset($bkb_data['bkb_kb_nav_box_title']) && $bkb_data['bkb_kb_nav_box_title'] != "" && $bkb_kb_nav_box_default_title != $bkb_data['bkb_kb_nav_box_title']) ? $bkb_data['bkb_kb_nav_box_title'] : $bkb_kb_nav_box_default_title;
 
     ?>
-        <div class="grid grid-pad nav-single bwl-row-cols-2">
+        <div class="bkbm-grid bkbm-grid-pad nav-single bwl-row-cols-2">
             <div>
                 <span class="nav-previous"><?php previous_post_link('%link', '<span class="meta-nav">' . _x('&larr;', 'Previous post link', 'bkb_tpl') . '</span> %title'); ?>&nbsp;</span>
             </div>
