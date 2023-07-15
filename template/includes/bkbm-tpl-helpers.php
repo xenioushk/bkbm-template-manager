@@ -18,6 +18,24 @@ function category_has_parent($catid)
     return 0;
 }
 
+function bkbmTplWidgetsNotice()
+{
+    if (is_user_logged_in() && current_user_can('manage_options')) :
+        ob_start();
+
+?>
+
+        <p>
+            <i class="fa fa-info-circle"></i>
+            <strong><a href="<?php echo esc_url(home_url('/')); ?>wp-admin/widgets.php" target="_blank"><?php _e('Click here', 'bkb_tpl'); ?></a></strong>
+            <?php _e('to set sidebar widgets.', 'bkb_tpl') ?>
+        </p>
+
+<?php
+        return ob_get_clean();
+    endif;
+}
+
 function bkbm_breadcrumbs()
 {
 
@@ -127,7 +145,6 @@ function getBkbBreadcrumbElements($baseController)
 
     return $breadcrumb;
 }
-
 
 
 // Shortcode Feature added in version 1.0.1
