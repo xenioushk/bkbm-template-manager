@@ -44,7 +44,9 @@ if (!class_exists('BKBM_Template_Manager')) {
                 define('BKBTPL_ADDON_TITLE', '<b>Templify KB</b>');
                 define('BKBTPL_PARENT_PLUGIN_REQUIRED_VERSION', '1.4.2'); // change plugin required version in here.
                 define('BKBTPL_ADDON_CURRENT_VERSION', BWL_KB_TPL_PLUGIN_VERSION); // change plugin current version in here.
-                define('BKBTPL_ADDON_UPDATER_SLUG', plugin_basename(__FILE__)); // change plugin current version in here.
+                define('BKBTPL_ADDON_INSTALLATION_TAG', 'bkbm_tpl_installation_' . str_replace('.', '_', BKBTPL_ADDON_CURRENT_VERSION));
+
+                define('BKBTPL_ADDON_UPDATER_SLUG', plugin_basename(__FILE__));
 
                 define("BKBTPL_ADDON_CC_ID", "11888104"); // Plugin codecanyon Id.
 
@@ -324,7 +326,7 @@ if (!class_exists('BKBM_Template_Manager')) {
                 'BkbmTplAdminData',
                 [
                     'product_id' => BKBTPL_ADDON_CC_ID,
-                    'installation' => get_option('bkbm_tpl_installation')
+                    'installation' => get_option(BKBTPL_ADDON_INSTALLATION_TAG)
                 ]
             );
         }

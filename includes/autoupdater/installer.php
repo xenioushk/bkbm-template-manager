@@ -20,9 +20,10 @@ function bkbmTplAddInstallationData()
   // bkbm_tpl_installation
   $apiURL = bkbmTplApiUrl();
   $site_url = get_site_url();
-  $product_id = $_REQUEST['product_id']; // change the id
+  $product_id = BKBTPL_ADDON_CC_ID; // change the id
   $ip = $_SERVER['REMOTE_ADDR'];
-  $requestUrl = $apiURL . "wp-json/bwlapi/v1/installation/count?product_id=$product_id&site=$site_url&referer=$ip";
+  $ver = BWL_KB_TPL_PLUGIN_VERSION;
+  $requestUrl = $apiURL . "wp-json/bwlapi/v1/installation/count?product_id=$product_id&site=$site_url&referer=$ip&ver=$ver";
 
   $output = wp_remote_get($requestUrl);
   // New Code.
@@ -38,9 +39,9 @@ function bkbmTplAddInstallationData()
 
     $output_decode = json_decode($data, true);
 
-    if (isset($output_decode['status']) && $output_decode['status'] == 1) {
+    if (isset($output_decode['status']) && $output_decode['status'] != 0) {
 
-      update_option('bkbm_tpl_installation', '1'); // change the tag
+      update_option(BKBTPL_ADDON_INSTALLATION_TAG, '1'); // change the tag
 
       $data = [
         'status' => $output_decode['status'],
