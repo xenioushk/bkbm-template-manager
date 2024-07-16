@@ -5,7 +5,7 @@
  * Plugin URI: https://1.envato.market/bkbm-wp
  * Description: Templify KB - Knowledge Base Addon allows you to display Knowledge Base categories, tags and single posts  in custom templates without modifying any of the files inside theme forlder. Addon automatically handle BWL Knowledge base categories, tags and single posts templates. Addon comes with responsive and mobile friendly bkbm-grid layout. So that you can easily display you're Knowledge Base contents in small devices.
  * Author: Md Mahbub Alam Khan
- * Version: 1.1.5
+ * Version: 1.1.6
  * Author URI: https://bluewindlab.net
  * WP Requires at least: 6.0+
  * Text Domain: bkb_tpl
@@ -19,17 +19,30 @@ if (!class_exists('BKBM_Template_Manager')) {
         {
 
             //Checking plugin compatibility and require parent plugin.
-            $bkb_tpl_compatibily_status = $this->bkb_tpl_compatibily_status();
+            $compatibilyStatus = $this->bkb_tpl_compatibily_status();
 
-            // If plugin is not compatible and dependent plugins are required then display a notice in admin panel.
-            if ($bkb_tpl_compatibily_status == 0 && is_admin()) {
+            // Display a notice if parent plugin is missing.
+            if ($compatibilyStatus == 0 && is_admin()) {
 
                 add_action('admin_notices', array($this, 'bkb_tpl_requirement_admin_notices'));
             }
 
-            //If plugin is compatible then load all require files.
+            // Checking purchase status.
+            $purchaseStatus = $this->getPurchaseStatus();
 
-            if ($bkb_tpl_compatibily_status == 1) {
+            // Display notice if purchase code is missing.
+            if (is_admin() && $purchaseStatus == 0) {
+
+                add_action('admin_notices', array($this, 'bkbTplPurchaseVerificationNotice'));
+            }
+
+            // if the compatibility and purchase code is okay
+            // then we will set the status 1.
+            $compatibilyStatus = $purchaseStatus ? 1 : 0;
+
+            // Finally, load the required files for the addon.
+
+            if ($compatibilyStatus == 1) {
 
                 global $bkb_data;
                 $bkb_data = get_option('bkb_options');
@@ -38,7 +51,7 @@ if (!class_exists('BKBM_Template_Manager')) {
 
                 define('BKBM_BOOTSTRAP_FRAMEWORK', (isset($bkb_data['bkb_tpl_bootstrap_status']) && $bkb_data['bkb_tpl_bootstrap_status'] == 1)  ? 1 : 0);
 
-                define("BWL_KB_TPL_PLUGIN_VERSION", '1.1.5'); // Addon version.
+                define("BWL_KB_TPL_PLUGIN_VERSION", '1.1.6'); // Addon version.
                 define('BKBTPL_PARENT_PLUGIN_INSTALLED_VERSION', get_option('bwl_kb_plugin_version')); // 
                 define('BKBTPL_ADDON_PARENT_PLUGIN_TITLE', '<b>BWL Knowledge Base Manager Plugin</b> ');
                 define('BKBTPL_ADDON_TITLE', '<b>Templify KB</b>');
@@ -80,6 +93,21 @@ if (!class_exists('BKBM_Template_Manager')) {
                 }
             }
         }
+
+        public function getPurchaseStatus()
+        {
+            return get_option('bkbm_purchase_verified') == 1 ? 1 : 0;
+        }
+
+        function bkbTplPurchaseVerificationNotice()
+        {
+            $licensePage = admin_url("edit.php?post_type=bwl_kb&page=bkb-license");
+
+            echo '<div class="updated"><p>You need to <a href="' . $licensePage . '">activate</a> '
+                . '<b>BWL Knowledge Base Manager Plugin</b> '
+                . 'to use <b>Templify KB - Knowledge Base Addon</b>. </p></div>';
+        }
+
 
         //Version Manager:  Update Checking
 
@@ -332,22 +360,21 @@ if (!class_exists('BKBM_Template_Manager')) {
         }
     }
 
-    /*------------------------------ Initialization ---------------------------------*/
+    // Addon initialization.
 
-    function init_bkbm_template_manager()
+    function initBkbmTemplateManager()
     {
         new BKBM_Template_Manager();
     }
 
-    add_action('init', 'init_bkbm_template_manager');
+    add_action('init', 'initBkbmTemplateManager');
 
-    /*------------------------------  TRANSLATION FILE ---------------------------------*/
+    // Load translation file
 
     load_plugin_textdomain('bkb_tpl', FALSE, dirname(plugin_basename(__FILE__)) . '/lang/');
 
     /**
      * Get the custom template if is set
-     *
      * @since 1.0
      */
 
