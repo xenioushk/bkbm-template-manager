@@ -1,8 +1,8 @@
 ## Templify KB – BWL Knowledge Base Manager Addon
 
-**Templify KB** is a powerful template addon for the BWL Knowledge Base Manager WordPress plugin to manage KB Categories, Tags, and single-page custom templates without touching a single file inside the theme folder.
+**Templify KB** is a powerful template addon for the BWL Knowledge Base Manager WordPress plugin to manage KB Categories, Tags, and single-page custom templates without touching a single file inside the theme folder. Addon has a responsive and mobile-friendly grid layout system. So, you can easily display your knowledge base contents on small devices without any issues.
 
-Addon has a responsive and mobile-friendly grid layout system. So, you can easily display your knowledge base contents on small devices without any issues.
+![overview of templify kb addon](https://xenioushk.github.io/docs-plugins-addon/bkbm-addon/templify/screenshot/01_templify_kb.png)
 
 The addon has a built-in widget feature. You can add any custom widgets to the sidebar areas (there are seven types of unique widgets available with BWL Knowledge Base Manager), but only for KB items. That means you have complete freedom to manage the knowledge base page sidebar contents.
 
