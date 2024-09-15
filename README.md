@@ -19,3 +19,12 @@ You need at least WordPress version 4.8+ installed for this plugin to work prope
 - WordPress 5.6 or greater.
 - PHP version 7.4 or greater.
 - MySQL version 5.5.51 or greater.
+
+## Change log
+
+- [Change log](https://xenioushk.github.io/docs-plugins-addon/bkbm-addon/templify/index.html#changelog)
+
+## Acknowledgement
+
+- [bluewindlab.net](https://bluewindlab.net)
+- [BWL KB Manager WordPress plugin](https://1.envato.market/bkbm-wp)
