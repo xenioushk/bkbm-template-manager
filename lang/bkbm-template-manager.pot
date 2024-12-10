@@ -1,0 +1,101 @@
+# Copyright (C) 2024 Md Mahbub Alam Khan
+# This file is distributed under the same license as the Templify KB - Knowledge Base Addon plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Templify KB - Knowledge Base Addon 1.1.6\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/bkbm-template-manager\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-12-10T14:10:44+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.9.0\n"
+"X-Domain: bkb_tpl\n"
+
+#. Plugin Name of the plugin
+msgid "Templify KB - Knowledge Base Addon"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://1.envato.market/bkbm-wp"
+msgstr ""
+
+#. Description of the plugin
+msgid "Templify KB - Knowledge Base Addon allows you to display Knowledge Base categories, tags and single posts  in custom templates without modifying any of the files inside theme forlder. Addon automatically handle BWL Knowledge base categories, tags and single posts templates. Addon comes with responsive and mobile friendly bkbm-grid layout. So that you can easily display you're Knowledge Base contents in small devices."
+msgstr ""
+
+#. Author of the plugin
+msgid "Md Mahbub Alam Khan"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://bluewindlab.net"
+msgstr ""
+
+#: bkbm-template-manager.php:315
+msgid "BKBM Custom Sidebar"
+msgstr ""
+
+#: bkbm-template-manager.php:317
+msgid "Custom Sidebars for Knowledgebase plugin"
+msgstr ""
+
+#: template/category/tpl-cat-content-part.php:25
+msgid "Knowledge Base Category:"
+msgstr ""
+
+#: template/includes/bkbm-tpl-helpers.php:30
+msgid "Click here"
+msgstr ""
+
+#: template/includes/bkbm-tpl-helpers.php:31
+msgid "to set sidebar widgets."
+msgstr ""
+
+#: template/includes/bkbm-tpl-helpers.php:55
+msgid "Knowledge Base"
+msgstr ""
+
+#: template/includes/bkbm-tpl-helpers.php:85
+msgid "Home"
+msgstr ""
+
+#: template/single/tpl-single-content-part.php:43
+msgid "Leave a reply"
+msgstr ""
+
+#: template/single/tpl-single-content-part.php:43
+msgid "1 Reply"
+msgstr ""
+
+#: template/single/tpl-single-content-part.php:43
+msgid "% Replies"
+msgstr ""
+
+#: template/single/tpl-single-content-part.php:51
+msgid "Continue reading"
+msgstr ""
+
+#: template/single/tpl-single-content-part.php:52
+msgid "Pages:"
+msgstr ""
+
+#: template/single/tpl-single-content-part.php:70
+msgid "Knowledgebase Navigation:"
+msgstr ""
+
+#: template/single/tpl-single-content-part.php:78
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr ""
+
+#: template/single/tpl-single-content-part.php:82
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr ""
+
+#: template/tag/tpl-tag-content-part.php:25
+msgid "Knowledge Base Tag:"
+msgstr ""
