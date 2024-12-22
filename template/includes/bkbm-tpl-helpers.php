@@ -27,7 +27,8 @@ function bkbmTplWidgetsNotice()
 
         <p>
             <i class="fa fa-info-circle"></i>
-            <strong><a href="<?php echo esc_url(home_url('/')); ?>wp-admin/widgets.php" target="_blank"><?php _e('Click here', 'bkb_tpl'); ?></a></strong>
+            <strong><a href="<?php echo esc_url(home_url('/')); ?>wp-admin/widgets.php"
+                    target="_blank"><?php _e('Click here', 'bkb_tpl'); ?></a></strong>
             <?php _e('to set sidebar widgets.', 'bkb_tpl') ?>
         </p>
 
@@ -206,7 +207,7 @@ function bkbm_before_main_content()
             <div class="row">';
     } else {
 
-        $content_string = '<div class="bkbm-grid bkbm-grid-pad bwl-row-cols-2-1 bkb_tpl_custom_margin">';
+        $content_string = '<div class="bkbm-grid-container"><div class="bkbm-grid bkbm-grid-pad bwl-row-cols-2-1 bkb_tpl_custom_margin">';
     }
 
     echo $content_string;
@@ -222,7 +223,8 @@ function bkbm_after_main_content()
         $content_string = '</div>
         </div>';
     } else {
-        $content_string = '</div>';
+        $content_string = '</div>
+        </div>';
     }
 
     echo $content_string;

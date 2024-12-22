@@ -194,9 +194,4 @@ aside.bkb-custom-sidebar ul.bkb-widget li {
   margin: 12px 0;
 }
 
-/*---  Responsive ---*/
-@media only screen and (min-width: 0px) and (max-width: 479px) {
-  /*.bkb-tpl-sidebar-pad{ padding: 6px !important; }*/
-}
-
 /*# sourceMappingURL=frontend.css.map*/

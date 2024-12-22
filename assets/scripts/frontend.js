@@ -63,9 +63,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_frontend_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/frontend.scss */ "./src/styles/frontend.scss");
 // Stylesheets
 
-
-// Javascripts
-// import "./modules/kb_live_search"
 })();
 
 /******/ })()
