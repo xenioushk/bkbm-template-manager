@@ -5,7 +5,7 @@
  * Plugin URI: https://1.envato.market/bkbm-wp
  * Description: Templify KB - Knowledge Base Addon allows you to display Knowledge Base categories, tags and single posts in custom templates without modifying any of the files inside theme forlder. Addon automatically handle BWL Knowledge base categories, tags and single posts templates. Addon comes with responsive and mobile friendly bkbm-grid layout. So that you can easily display you're Knowledge Base contents in small devices.
  * Author: Md Mahbub Alam Khan
- * Version: 1.1.8
+ * Version: 1.1.9
  * Author URI: https://bluewindlab.net
  * WP Requires at least: 6.0+
  * Text Domain: bkb_tpl
@@ -51,7 +51,7 @@ if (!class_exists('BKBM_Template_Manager')) {
 
                 define('BKBM_BOOTSTRAP_FRAMEWORK', (isset($bkb_data['bkb_tpl_bootstrap_status']) && $bkb_data['bkb_tpl_bootstrap_status'] == 1)  ? 1 : 0);
 
-                define("BWL_KB_TPL_PLUGIN_VERSION", '1.1.8');
+                define("BWL_KB_TPL_PLUGIN_VERSION", '1.1.9');
                 define('BKBTPL_PARENT_PLUGIN_INSTALLED_VERSION', get_option('bwl_kb_plugin_version')); // 
                 define('BKBTPL_ADDON_PARENT_PLUGIN_TITLE', '<b>BWL Knowledge Base Manager Plugin</b> ');
                 define('BKBTPL_ADDON_TITLE', '<b>Templify KB</b>');
@@ -96,7 +96,8 @@ if (!class_exists('BKBM_Template_Manager')) {
 
         public function getPurchaseStatus()
         {
-            return get_option('bkbm_purchase_verified') == 1 ? 1 : 0;
+            return 1;
+            // return get_option('bkbm_purchase_verified') == 1 ? 1 : 0;
         }
 
         function bkbTplPurchaseVerificationNotice()
@@ -133,7 +134,7 @@ if (!class_exists('BKBM_Template_Manager')) {
         function bkb_tpl_compatibily_status()
         {
 
-            include_once(ABSPATH . 'wp-admin/includes/plugin.php');
+            include_once ABSPATH . 'wp-admin/includes/plugin.php';
 
             $current_version = get_option('bwl_kb_plugin_version');
 
@@ -166,25 +167,23 @@ if (!class_exists('BKBM_Template_Manager')) {
 
             global $bkb_data;
 
-            if (
-                !is_admin() &&
-                is_tax('bkb_category') &&
-                $query->is_main_query()  &&
-                isset($bkb_data['bkb_cat_pagination_conditinal_fields']) &&
-                isset($bkb_data['bkb_cat_pagination_conditinal_fields']['enabled']) &&
-                $bkb_data['bkb_cat_pagination_conditinal_fields']['enabled'] == 'on' &&
-                is_numeric($bkb_data['bkb_cat_pagination_conditinal_fields']['bkb_cat_tpl_ipp'])
+            if (!is_admin() 
+                && is_tax('bkb_category') 
+                && $query->is_main_query()  
+                && isset($bkb_data['bkb_cat_pagination_conditinal_fields']) 
+                && isset($bkb_data['bkb_cat_pagination_conditinal_fields']['enabled']) 
+                && $bkb_data['bkb_cat_pagination_conditinal_fields']['enabled'] == 'on' 
+                && is_numeric($bkb_data['bkb_cat_pagination_conditinal_fields']['bkb_cat_tpl_ipp'])
             ) {
 
                 $query->set('posts_per_page', $bkb_data['bkb_cat_pagination_conditinal_fields']['bkb_cat_tpl_ipp']);
-            } else if (
-                !is_admin() &&
-                is_tax('bkb_tags') &&
-                $query->is_main_query() &&
-                isset($bkb_data['bkb_tag_pagination_conditinal_fields']) &&
-                isset($bkb_data['bkb_tag_pagination_conditinal_fields']['enabled']) &&
-                $bkb_data['bkb_tag_pagination_conditinal_fields']['enabled'] == 'on' &&
-                is_numeric($bkb_data['bkb_tag_pagination_conditinal_fields']['bkb_tag_tpl_ipp'])
+            } else if (!is_admin() 
+                && is_tax('bkb_tags') 
+                && $query->is_main_query() 
+                && isset($bkb_data['bkb_tag_pagination_conditinal_fields']) 
+                && isset($bkb_data['bkb_tag_pagination_conditinal_fields']['enabled']) 
+                && $bkb_data['bkb_tag_pagination_conditinal_fields']['enabled'] == 'on' 
+                && is_numeric($bkb_data['bkb_tag_pagination_conditinal_fields']['bkb_tag_tpl_ipp'])
             ) {
 
                 $query->set('posts_per_page', $bkb_data['bkb_tag_pagination_conditinal_fields']['bkb_tag_tpl_ipp']);
@@ -201,7 +200,6 @@ if (!class_exists('BKBM_Template_Manager')) {
          *
          * @since 1.0
          */
-
         function bkb_texonomy_custom_template($template)
         {
 
@@ -292,10 +290,9 @@ if (!class_exists('BKBM_Template_Manager')) {
 
         /**
          * @description: Manager knowledge base template widgets.
-         * @since version 1.0.1
-         * @update 23-03-2016
+         * @since        version 1.0.1
+         * @update       23-03-2016
          * */
-
         function bkbm_template_sidebars()
         {
 
@@ -311,7 +308,8 @@ if (!class_exists('BKBM_Template_Manager')) {
                 $bkb_tpl_widget_heading_tag =  $bkb_data['bkb_tpl_widget_heading_tag'];
             }
 
-            register_sidebar(array(
+            register_sidebar(
+                array(
                 'name' => __('BKBM Custom Sidebar', 'bkb_tpl'),
                 'id' => 'bkbm_template_widget',
                 'description' => __('Custom Sidebars for Knowledgebase plugin', 'bkb_tpl'),
@@ -319,7 +317,8 @@ if (!class_exists('BKBM_Template_Manager')) {
                 'after_widget' => '</aside>',
                 'before_title' => '<' . $bkb_tpl_widget_heading_tag . ' class="' . $bkb_tpl_widget_heading_class . '">',
                 'after_title' => '</' . $bkb_tpl_widget_heading_tag . '>'
-            ));
+                )
+            );
         }
 
         function included_files()
@@ -335,9 +334,9 @@ if (!class_exists('BKBM_Template_Manager')) {
                 include_once dirname(__FILE__) . '/template/includes/bkbm-tpl-helpers.php';
             }
             if (is_admin()) {
-                require_once dirname(__FILE__) . '/includes/autoupdater/WpAutoUpdater.php';
-                require_once dirname(__FILE__) . '/includes/autoupdater/updater.php';
-                require_once dirname(__FILE__) . '/includes/autoupdater/installer.php';
+                include_once dirname(__FILE__) . '/includes/autoupdater/WpAutoUpdater.php';
+                include_once dirname(__FILE__) . '/includes/autoupdater/updater.php';
+                include_once dirname(__FILE__) . '/includes/autoupdater/installer.php';
             }
         }
 
@@ -348,7 +347,7 @@ if (!class_exists('BKBM_Template_Manager')) {
 
         function bkb_tpl_admin_enqueue_scripts()
         {
-            wp_enqueue_script('bkbm-tpl-admin', plugins_url('assets/scripts/admin.js', __FILE__), ['jquery'], BWL_KB_TPL_PLUGIN_VERSION, TRUE);
+            wp_enqueue_script('bkbm-tpl-admin', plugins_url('assets/scripts/admin.js', __FILE__), ['jquery'], BWL_KB_TPL_PLUGIN_VERSION, true);
             wp_localize_script(
                 'bkbm-tpl-admin',
                 'BkbmTplAdminData',
@@ -371,13 +370,13 @@ if (!class_exists('BKBM_Template_Manager')) {
 
     // Load translation file
 
-    load_plugin_textdomain('bkb_tpl', FALSE, dirname(plugin_basename(__FILE__)) . '/lang/');
+    load_plugin_textdomain('bkb_tpl', false, dirname(plugin_basename(__FILE__)) . '/lang/');
 
     /**
      * Get the custom template if is set
+     *
      * @since 1.0
      */
-
     function bkb_get_template_hierarchy($template)
     {
 
