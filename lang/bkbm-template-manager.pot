@@ -1,64 +1,77 @@
-# Copyright (C) 2024 Md Mahbub Alam Khan
+# Copyright (C) 2025 Md Mahbub Alam Khan
 # This file is distributed under the same license as the Templify KB - Knowledge Base Addon plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Templify KB - Knowledge Base Addon 1.1.6\n"
+"Project-Id-Version: Templify KB - Knowledge Base Addon 2.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/bkbm-template-manager\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-12-10T14:10:44+00:00\n"
+"POT-Creation-Date: 2025-04-08T07:05:40+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.9.0\n"
+"X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: bkb_tpl\n"
 
 #. Plugin Name of the plugin
+#: bkbm-template-manager.php
 msgid "Templify KB - Knowledge Base Addon"
 msgstr ""
 
 #. Plugin URI of the plugin
+#: bkbm-template-manager.php
 msgid "https://1.envato.market/bkbm-wp"
 msgstr ""
 
 #. Description of the plugin
-msgid "Templify KB - Knowledge Base Addon allows you to display Knowledge Base categories, tags and single posts  in custom templates without modifying any of the files inside theme forlder. Addon automatically handle BWL Knowledge base categories, tags and single posts templates. Addon comes with responsive and mobile friendly bkbm-grid layout. So that you can easily display you're Knowledge Base contents in small devices."
+#: bkbm-template-manager.php
+msgid "Addon allows you to display Knowledge Base categories, tags and single posts in custom templates without modifying any of the files inside theme forlder."
 msgstr ""
 
 #. Author of the plugin
+#: bkbm-template-manager.php
 msgid "Md Mahbub Alam Khan"
 msgstr ""
 
 #. Author URI of the plugin
+#: bkbm-template-manager.php
 msgid "https://bluewindlab.net"
 msgstr ""
 
-#: bkbm-template-manager.php:315
+#: bkbm-template-manager.php:379
 msgid "BKBM Custom Sidebar"
 msgstr ""
 
-#: bkbm-template-manager.php:317
+#: bkbm-template-manager.php:381
 msgid "Custom Sidebars for Knowledgebase plugin"
+msgstr ""
+
+#: includes/Controllers/PluginMeta/MetaInfo.php:34
+msgid "Options Panel"
+msgstr ""
+
+#: includes/Controllers/PluginMeta/MetaInfo.php:38
+msgid "Docs"
 msgstr ""
 
 #: template/category/tpl-cat-content-part.php:25
 msgid "Knowledge Base Category:"
 msgstr ""
 
-#: template/includes/bkbm-tpl-helpers.php:30
+#: template/includes/bkbm-tpl-helpers.php:29
 msgid "Click here"
 msgstr ""
 
-#: template/includes/bkbm-tpl-helpers.php:31
+#: template/includes/bkbm-tpl-helpers.php:30
 msgid "to set sidebar widgets."
 msgstr ""
 
-#: template/includes/bkbm-tpl-helpers.php:55
+#: template/includes/bkbm-tpl-helpers.php:53
 msgid "Knowledge Base"
 msgstr ""
 
-#: template/includes/bkbm-tpl-helpers.php:85
+#: template/includes/bkbm-tpl-helpers.php:83
 msgid "Home"
 msgstr ""
 
@@ -74,24 +87,24 @@ msgstr ""
 msgid "% Replies"
 msgstr ""
 
-#: template/single/tpl-single-content-part.php:51
+#: template/single/tpl-single-content-part.php:52
 msgid "Continue reading"
 msgstr ""
 
-#: template/single/tpl-single-content-part.php:52
+#: template/single/tpl-single-content-part.php:53
 msgid "Pages:"
 msgstr ""
 
-#: template/single/tpl-single-content-part.php:70
+#: template/single/tpl-single-content-part.php:71
 msgid "Knowledgebase Navigation:"
 msgstr ""
 
-#: template/single/tpl-single-content-part.php:78
+#: template/single/tpl-single-content-part.php:79
 msgctxt "Previous post link"
 msgid "&larr;"
 msgstr ""
 
-#: template/single/tpl-single-content-part.php:82
+#: template/single/tpl-single-content-part.php:83
 msgctxt "Next post link"
 msgid "&rarr;"
 msgstr ""
