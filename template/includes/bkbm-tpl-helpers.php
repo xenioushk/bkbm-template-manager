@@ -184,37 +184,3 @@ if ( ! function_exists( 'bkb_tpl_pagination' ) ) :
     }
 
 endif;
-
-// Actions.
-
-add_action( 'bkbm_before_main_content', 'bkbm_before_main_content' );
-
-function bkbm_before_main_content() {
-
-    if ( BKBM_BOOTSTRAP_FRAMEWORK == 1 ) {
-
-        $content_string = '<div class="container bkb_tpl_custom_margin">
-            <div class="row">';
-    } else {
-
-        $content_string = '<div class="bkbm-grid-container"><div class="bkbm-grid bkbm-grid-pad bwl-row-cols-2-1 bkb_tpl_custom_margin">';
-    }
-
-    echo $content_string;
-}
-
-add_action( 'bkbm_after_main_content', 'bkbm_after_main_content' );
-
-function bkbm_after_main_content() {
-
-    if ( BKBM_BOOTSTRAP_FRAMEWORK == 1 ) {
-
-        $content_string = '</div>
-        </div>';
-    } else {
-        $content_string = '</div>
-        </div>';
-    }
-
-    echo $content_string;
-}

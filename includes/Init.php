@@ -128,6 +128,7 @@ class Init {
 	private static function get_action_classes() {
 
 		$classes = [
+			Controllers\Actions\Templates\MainContent::class,
 			Controllers\Actions\Templates\Single::class,
 			Controllers\Actions\Templates\Sidebar::class,
 		];
