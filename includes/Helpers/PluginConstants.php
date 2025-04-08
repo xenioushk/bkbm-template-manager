@@ -52,6 +52,7 @@ class PluginConstants {
 		self::set_paths_constants();
 		self::set_base_constants();
 		self::set_assets_constants();
+		self::set_templates_constants();
 		self::set_updater_constants();
 		self::set_product_info_constants();
 	}
@@ -98,6 +99,16 @@ class PluginConstants {
 		define( 'BKBTPL_PLUGIN_STYLES_ASSETS_DIR', BKBTPL_PLUGIN_URL . 'assets/styles/' );
 		define( 'BKBTPL_PLUGIN_SCRIPTS_ASSETS_DIR', BKBTPL_PLUGIN_URL . 'assets/scripts/' );
 		define( 'BKBTPL_PLUGIN_LIBS_DIR', BKBTPL_PLUGIN_URL . 'libs/' );
+	}
+	/**
+	 * Set the plugin template constants.
+	 */
+	private static function set_templates_constants() {
+		define( 'BKBTPL_TEMPLATES_DIR', 'templates/' );
+		define( 'BKBM_BOOTSTRAP_FRAMEWORK', ! empty( self::$plugin_options['bkb_tpl_bootstrap_status'] ) ? 1 : 0 );
+		define( 'BKBTPL_CAT_TPL', ! empty( self::$plugin_options['bkb_enable_cat_tpl'] ) ? 1 : 0 );
+		define( 'BKBTPL_TAG_TPL', ! empty( self::$plugin_options['bkb_enable_tag_tpl'] ) ? 1 : 0 );
+		define( 'BKBTPL_SINGLE_TPL', ! empty( self::$plugin_options['bkb_enable_single_tpl'] ) ? 1 : 0 );
 	}
 
 	/**

@@ -101,8 +101,6 @@ if ( ! class_exists( 'BKBM_Template_Manager' ) ) {
 
                 // DECLARE CONSTANTS
 
-                define( 'BKBM_BOOTSTRAP_FRAMEWORK', ( isset( $bkb_data['bkb_tpl_bootstrap_status'] ) && $bkb_data['bkb_tpl_bootstrap_status'] == 1 ) ? 1 : 0 );
-
                 define( 'BWL_KB_TPL_PLUGIN_VERSION', '1.1.9' );
                 define( 'BKBTPL_PARENT_PLUGIN_INSTALLED_VERSION', get_option( 'bwl_kb_plugin_version' ) );
 				define( 'BKBTPL_ADDON_PARENT_PLUGIN_TITLE', '<b>BWL Knowledge Base Manager Plugin</b> ' );
