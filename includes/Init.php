@@ -142,7 +142,10 @@ class Init {
 	private static function get_filter_classes() {
 
 		$classes = [
-			Controllers\Filters\TemplateFilters::class,
+			Controllers\Filters\Templates\Pagination::class,
+			Controllers\Filters\Templates\Category::class,
+			Controllers\Filters\Templates\Tag::class,
+			Controllers\Filters\Templates\Single::class,
 			// Controllers\Filters\Admin\RKBFilters::class,
 			// Controllers\Filters\Admin\CustomColumns::class,
 		];

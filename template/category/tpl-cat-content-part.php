@@ -33,7 +33,7 @@ if ( $bkb_cat_tpl_layout == 2 ) {
 	if ( category_description() && $bkb_tpl_show_cat_desc == 1 ) : // Show an optional category description
         ?>
     <div class="bkbm-archive-meta"><?php echo category_description(); ?></div>
-		<?php endif; ?>
+    <?php endif; ?>
 
 </header><!-- .archive-header -->
 

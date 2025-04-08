@@ -22,10 +22,10 @@ class SingleCb {
 
 		global $post;
 
-		if ( $post->post_type === BKBM_POST_TYPE ) {
+		if ( is_singular( BKBM_POST_TYPE ) ) {
 
 			// Updated in version 1.0.5
-			return BkbTplHelpers::bkb_get_template_hierarchy( 'single-bwl_kb' );
+			return BkbTplHelpers::bkb_get_template_hierarchy( 'single-' . BKBM_POST_TYPE );
 		}
 
 		return $single;
