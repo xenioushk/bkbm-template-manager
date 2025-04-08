@@ -5,13 +5,13 @@
       url: ajaxurl,
       data: {
         action: "bkbm_tpl_installation_counter", // this is the name of our WP AJAX function that we'll set up next
-        product_id: BkbmTplAdminData.product_id,
+        product_id: bkbTplAdminData.product_id,
       },
       dataType: "JSON",
     })
   }
 
-  if (typeof BkbmTplAdminData.installation != "undefined" && BkbmTplAdminData.installation != 1) {
+  if (typeof bkbTplAdminData.installation != "undefined" && bkbTplAdminData.installation != 1) {
     $.when(bkbm_tpl_installation_counter()).done(function (response_data) {
       console.log(response_data)
     })
