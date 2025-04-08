@@ -104,7 +104,7 @@ class PluginConstants {
 	 * Set the plugin template constants.
 	 */
 	private static function set_templates_constants() {
-		define( 'BKBTPL_TEMPLATES_DIR', 'templates/' );
+		define( 'BKBTPL_TEMPLATES_DIR', 'template/' );
 		define( 'BKBM_BOOTSTRAP_FRAMEWORK', ! empty( self::$plugin_options['bkb_tpl_bootstrap_status'] ) ? 1 : 0 );
 		define( 'BKBTPL_CAT_TPL', ! empty( self::$plugin_options['bkb_enable_cat_tpl'] ) ? 1 : 0 );
 		define( 'BKBTPL_TAG_TPL', ! empty( self::$plugin_options['bkb_enable_tag_tpl'] ) ? 1 : 0 );

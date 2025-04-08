@@ -28,7 +28,7 @@ class Init {
 			'base'    => self::get_base_classes(),
 			'meta'    => self::get_meta_classes(),
 			// 'actions' => self::get_action_classes(),
-			// 'filters' => self::get_filter_classes(),
+			'filters' => self::get_filter_classes(),
 			// 'notices'  => self::get_notices_classes(),
 		];
 
@@ -102,7 +102,7 @@ class Init {
 	private static function get_helper_classes() {
 		$classes = [
 			Helpers\PluginConstants::class,
-			// Helpers\RkbHelpers::class,
+			Helpers\BkbTplHelpers::class,
 		];
 		return $classes;
 	}
@@ -142,9 +142,9 @@ class Init {
 	private static function get_filter_classes() {
 
 		$classes = [
-			Controllers\Filters\RKBFilters::class,
-			Controllers\Filters\Admin\RKBFilters::class,
-			Controllers\Filters\Admin\CustomColumns::class,
+			Controllers\Filters\TemplateFilters::class,
+			// Controllers\Filters\Admin\RKBFilters::class,
+			// Controllers\Filters\Admin\CustomColumns::class,
 		];
 		return $classes;
 	}

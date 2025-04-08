@@ -272,24 +272,4 @@ if ( ! class_exists( 'BKBM_Template_Manager' ) ) {
         }
     }
 
-    /**
-     * Get the custom template if is set
-     *
-     * @since 1.0
-     */
-    function bkb_get_template_hierarchy( $template ) {
-
-        // Get the template slug
-        $template_slug = rtrim( $template, '.php' );
-        $template      = $template_slug . '.php';
-
-        // Check if a custom template exists in the theme folder, if not, load the plugin template file
-        if ( $theme_file = locate_template( [ 'bkb_template/' . $template ] ) ) {
-            $file = $theme_file;
-        } else {
-            $file = __DIR__ . '/template/' . $template;
-        }
-
-        return apply_filters( 'rc_repl_template_' . $template, $file );
-    }
 }
