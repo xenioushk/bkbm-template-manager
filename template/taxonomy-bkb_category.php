@@ -5,6 +5,7 @@
 // Load current theme header content.
 get_header();
 
+
 // Default Template Settings.
 // global $bkb_data;
 
@@ -85,6 +86,7 @@ if ( isset( $bkb_data['bkb_cat_pagination_conditinal_fields'] ) && isset( $bkb_d
 	$paged              = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
 }
+
 
     /*
      *@Since: Version 1.0.5

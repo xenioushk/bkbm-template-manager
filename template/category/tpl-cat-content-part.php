@@ -1,5 +1,5 @@
 <?php
-
+global $wp_query;
 if ( $bkb_cat_tpl_layout == 2 ) {
 
     $bkb_content_class = 'bkbcol-1-1';
@@ -60,7 +60,6 @@ if ( $bkb_cat_tpl_layout == 2 ) {
         $bkb_kb_cat_default_icon = '';
         $posts_count             = 1;
         $hide_empty              = 1;
-
         echo do_shortcode( '[bkb_category categories="' . $category_slug . '" cols="1" orderby="' . $bkb_cat_tpl_order_by . '" order="' . $bkb_cat_tpl_order . '" limit="' . $bkb_cat_tpl_ipp . '" show_title="0" bkb_list_type="' . $bkb_list_style_type . '" paginate="' . $bkb_cat_pagination . '" posts_per_page="' . $bkb_cat_tpl_ipp . '"  paged="' . $paged . '"/]' );
 
 	if ( $child_cat_id ) {
