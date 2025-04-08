@@ -1,13 +1,13 @@
 <?php
 
-namespace BKBRKB\Callbacks\AdminAjaxHandlers;
+namespace BKBTPL\Callbacks\AdminAjaxHandlers;
 
-use BKBRKB\Traits\PluginInstallationTraits;
+use BKBTPL\Traits\PluginInstallationTraits;
 
 /**
  * Class for plugin installation callback.
  *
- * @package BKBRKB
+ * @package BKBTPL
  */
 class PluginInstallationCb {
 
@@ -30,9 +30,9 @@ class PluginInstallationCb {
 
 		$api_url    = $this->bwl_api_url();
 		$site_url   = get_site_url();
-		$product_id = BKBRKB_PRODUCT_ID;
+		$product_id = BKBTPL_PRODUCT_ID;
 		$ip         = $_SERVER['REMOTE_ADDR'];
-		$ver        = BKBRKB_PLUGIN_VERSION;
+		$ver        = BKBTPL_PLUGIN_VERSION;
 		$requestUrl = $api_url . "wp-json/bwlapi/v1/installation/count?product_id=$product_id&site=$site_url&referer=$ip&ver=$ver";
 
 		$output = wp_remote_get( $requestUrl );
@@ -45,7 +45,7 @@ class PluginInstallationCb {
 
 			if ( isset( $output_decode['status'] ) && $output_decode['status'] != 0 ) {
 
-				update_option( BKBRKB_PRODUCT_INSTALLATION_TAG, 1 ); // change the tag
+				update_option( BKBTPL_PRODUCT_INSTALLATION_TAG, 1 ); // change the tag
 
 				$data = [
 					'status' => $output_decode['status'],

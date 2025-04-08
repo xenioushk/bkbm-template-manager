@@ -96,32 +96,6 @@ if ( ! class_exists( 'BKBM_Template_Manager' ) ) {
 
         function __construct() {
 
-            // Checking plugin compatibility and require parent plugin.
-            $compatibilyStatus = $this->bkb_tpl_compatibily_status();
-
-            // Display a notice if parent plugin is missing.
-            if ( $compatibilyStatus == 0 && is_admin() ) {
-
-                add_action( 'admin_notices', [ $this, 'bkb_tpl_requirement_admin_notices' ] );
-            }
-
-            // Checking purchase status.
-            $purchaseStatus = $this->getPurchaseStatus();
-
-            // Display notice if purchase code is missing.
-            if ( is_admin() && $purchaseStatus == 0 ) {
-
-                add_action( 'admin_notices', [ $this, 'bkbTplPurchaseVerificationNotice' ] );
-            }
-
-            // if the compatibility and purchase code is okay
-            // then we will set the status 1.
-            $compatibilyStatus = $purchaseStatus ? 1 : 0;
-
-            // Finally, load the required files for the addon.
-
-            if ( $compatibilyStatus == 1 ) {
-
                 global $bkb_data;
                 $bkb_data = get_option( 'bkb_options' );
 
@@ -141,8 +115,6 @@ if ( ! class_exists( 'BKBM_Template_Manager' ) ) {
 
                 define( 'BKBTPL_ADDON_CC_ID', '11888104' ); // Plugin codecanyon Id.
 
-                add_action( 'admin_notices', [ $this, 'bkb_tpl_version_update_admin_notice' ] );
-
                 $this->included_files( $bkb_data ); // Include all the required files for Addon.
                 $this->bkbm_template_sidebars(); // Added custom wiidget area for Addon. @Introduced in version 1.0.1
 
@@ -150,10 +122,10 @@ if ( ! class_exists( 'BKBM_Template_Manager' ) ) {
 
                 $bkb_enable_single_tpl = 1;
 
-                if ( isset( $bkb_data['bkb_enable_single_tpl'] ) && $bkb_data['bkb_enable_single_tpl'] == '' ) {
+			if ( isset( $bkb_data['bkb_enable_single_tpl'] ) && $bkb_data['bkb_enable_single_tpl'] == '' ) {
 
-                    $bkb_enable_single_tpl = 0;
-                }
+				$bkb_enable_single_tpl = 0;
+			}
 
                 // Pagination Filter Introduced in version 1.0.9
                 add_filter( 'pre_get_posts', [ $this, 'bkb_tpl_taxonomy_filters' ] );
@@ -162,72 +134,10 @@ if ( ! class_exists( 'BKBM_Template_Manager' ) ) {
 
                 add_filter( 'taxonomy_template', [ $this, 'bkb_texonomy_custom_template' ] );
 
-                if ( $bkb_enable_single_tpl == 1 ) {
-                    add_filter( 'single_template', [ $this, 'bkb_single_custom_template' ] );
-                }
-            }
-        }
+			if ( $bkb_enable_single_tpl == 1 ) {
+				add_filter( 'single_template', [ $this, 'bkb_single_custom_template' ] );
+			}
 
-        public function getPurchaseStatus() {
-            return 1;
-            // return get_option('bkbm_purchase_verified') == 1 ? 1 : 0;
-        }
-
-        function bkbTplPurchaseVerificationNotice() {
-            $licensePage = admin_url( 'edit.php?post_type=bwl_kb&page=bkb-license' );
-
-            echo '<div class="updated"><p>You need to <a href="' . $licensePage . '">activate</a> '
-                . '<b>BWL Knowledge Base Manager Plugin</b> '
-                . 'to use <b>Templify KB - Knowledge Base Addon</b>. </p></div>';
-        }
-
-
-        // Version Manager:  Update Checking
-
-        public function bkb_tpl_version_update_admin_notice() {
-
-            global $current_user;
-
-            $current_user_role = '';
-            // Extract Current User Role Info
-            if ( isset( $current_user->roles[0] ) ) {
-                $current_user_role = $current_user->roles[0];
-            }
-
-            if ( $current_user_role == 'administrator' && BKBTPL_PARENT_PLUGIN_INSTALLED_VERSION < BKBTPL_PARENT_PLUGIN_REQUIRED_VERSION ) {
-
-                echo '<div class="updated"><p>' . BKBTPL_ADDON_TITLE . ' Addon ( version-' . BKBTPL_ADDON_CURRENT_VERSION . ') required latest version of '
-                    . BKBTPL_ADDON_PARENT_PLUGIN_TITLE . '(' . BKBTPL_PARENT_PLUGIN_REQUIRED_VERSION . ') ! <br />Please <a href="http://codecanyon.net/download?ref=xenioushk" target="_blank">Download & Update</a> ' . BKBTPL_ADDON_PARENT_PLUGIN_TITLE . '!</p></div>';
-            }
-        }
-
-
-        function bkb_tpl_compatibily_status() {
-
-            include_once ABSPATH . 'wp-admin/includes/plugin.php';
-
-            $current_version = get_option( 'bwl_kb_plugin_version' );
-
-            if ( $current_version == '' ) {
-                $current_version = '1.0.6';
-            }
-
-            if ( class_exists( 'BwlKbManager\\Init' ) && $current_version > '1.0.6' ) {
-
-                return 1; // Parent KB Plugin has been installed & activated.
-
-            } else {
-
-                return 0; // Parent KB Plugin is not installed or activated.
-
-            }
-        }
-
-        function bkb_tpl_requirement_admin_notices() {
-
-            echo '<div class="updated"><p>You need to download & install '
-                . '<b><a href="https://1.envato.market/bkbm-wp" target="_blank">BWL Knowledge Base Manager Plugin</a></b> '
-                . 'to use <b>Templify KB - Knowledge Base Addon</b>. </p></div>';
         }
 
         function bkb_tpl_taxonomy_filters( $query ) {
@@ -395,25 +305,8 @@ if ( ! class_exists( 'BKBM_Template_Manager' ) ) {
 
                 include_once __DIR__ . '/template/includes/bkbm-tpl-helpers.php';
             }
-            if ( is_admin() ) {
-                include_once __DIR__ . '/includes/autoupdater/WpAutoUpdater.php';
-                include_once __DIR__ . '/includes/autoupdater/updater.php';
-                include_once __DIR__ . '/includes/autoupdater/installer.php';
-            }
         }
     }
-
-    // Addon initialization.
-
-    function initBkbmTemplateManager() {
-        new BKBM_Template_Manager();
-    }
-
-    add_action( 'init', 'initBkbmTemplateManager' );
-
-    // Load translation file
-
-    load_plugin_textdomain( 'bkb_tpl', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
 
     /**
      * Get the custom template if is set
