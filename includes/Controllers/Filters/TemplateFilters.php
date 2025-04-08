@@ -25,12 +25,14 @@ class TemplateFilters {
         $single_cb = new SingleCb();
 
         // All filters.
-        $filters = [
-            [
-                'tag'      => 'single_template',
+        $filters = [];
+
+        if ( BKBTPL_SINGLE_TPL ) {
+            $filters[] = [
+                'tag'      => 'template_include',
                 'callback' => [ $single_cb, 'get_template' ],
-            ],
-        ];
+            ];
+        }
 
         $filters_api->add_filters( $filters )->register();
     }

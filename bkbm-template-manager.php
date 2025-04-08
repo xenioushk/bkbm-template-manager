@@ -131,10 +131,6 @@ if ( ! class_exists( 'BKBM_Template_Manager' ) ) {
 
                 add_filter( 'taxonomy_template', [ $this, 'bkb_texonomy_custom_template' ] );
 
-			if ( $bkb_enable_single_tpl == 1 ) {
-				add_filter( 'single_template', [ $this, 'bkb_single_custom_template' ] );
-			}
-
         }
 
         function bkb_tpl_taxonomy_filters( $query ) {
@@ -227,36 +223,6 @@ if ( ! class_exists( 'BKBM_Template_Manager' ) ) {
         }
 
 
-
-        function bkb_single_custom_template( $single ) {
-
-            global $wp_query, $post, $bkb_data;
-
-            $plugindir = __DIR__;
-
-            // Load Templify Addon Stylesheet
-
-            $bkb_tpl_stylesheet = 0; // default false(0)
-
-            if ( isset( $bkb_data['bkb_tpl_stylesheet'] ) && $bkb_data['bkb_tpl_stylesheet'] == 1 ) {
-
-                $bkb_tpl_stylesheet = 1;
-            }
-
-            if ( $bkb_tpl_stylesheet == 0 ) {
-
-                // Enqueue Stylesheet.
-                wp_enqueue_style( 'bkbm-tpl-frontend' );
-            }
-
-            if ( $post->post_type == 'bwl_kb' ) {
-
-                // Updated in version 1.0.5
-                return bkb_get_template_hierarchy( 'single-bwl_kb' );
-            }
-
-            return $single;
-        }
 
         function included_files() {
 
