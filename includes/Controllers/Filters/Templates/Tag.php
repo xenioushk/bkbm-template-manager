@@ -17,6 +17,10 @@ class Tag {
 	 */
     public function register() {
 
+        if ( ! BKBTPL_TAG_TPL ) {
+            return;
+        }
+
         // Initialize API.
         $filters_api = new FiltersApi();
 

@@ -17,10 +17,9 @@ class Single {
 	 */
     public function register() {
 
-        // Load Helper File.
-
-        $this->load_helper_file();
-
+        if ( ! BKBTPL_SINGLE_TPL ) {
+            return;
+        }
         // Initialize API.
         $filters_api = new FiltersApi();
 
@@ -35,18 +34,5 @@ class Single {
         ];
 
         $filters_api->add_filters( $filters )->register();
-    }
-
-    /**
-     * Load the helper file.
-     *
-     * @since 1.0.0
-     */
-    public function load_helper_file() {
-
-        $file = locate_template( 'bkb_template/includes/bkbm-tpl-helpers.php' )
-			?: BKBTPL_PLUGIN_PATH . BKBTPL_TEMPLATES_DIR . 'includes/bkbm-tpl-helpers.php';
-
-			include_once $file;
     }
 }

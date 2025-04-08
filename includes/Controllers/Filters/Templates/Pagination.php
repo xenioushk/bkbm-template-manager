@@ -17,6 +17,10 @@ class Pagination {
 	 */
     public function register() {
 
+        if ( ! BKBTPL_CAT_TPL && ! BKBTPL_TAG_TPL ) {
+            return;
+        }
+
         // Load Helper File.
 
         $this->load_helper_file();

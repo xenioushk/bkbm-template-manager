@@ -17,6 +17,10 @@ class Category {
 	 */
     public function register() {
 
+        if ( ! BKBTPL_CAT_TPL ) {
+            return;
+        }
+
         // Initialize API.
         $filters_api = new FiltersApi();
 

@@ -24,10 +24,6 @@ class BkbTplHelpers {
         $file = \locate_template( [ 'bkb_template/' . $template ] )
             ?: BKBTPL_PLUGIN_FILE_PATH . BKBTPL_TEMPLATES_DIR . $template;
 
-            echo '<pre>';
-            print_r( $file );
-            echo '</pre>';
-        return $file;
         // Ensure the file exists.
         if ( ! file_exists( $file ) ) {
             return ''; // Return an empty string or handle the error appropriately.
