@@ -1,7 +1,15 @@
 {
   "name": "xenioushk/bwl_kb_manager",
-  "description": "A Knowledgebase Manager WordPress Plugin by Mahbub.",
+  "description": "Templify KB - Knowledge Base Addon",
   "type": "project",
+  "autoload": {
+    "psr-4": {
+      "BKBTPL\\": "includes/"
+    }
+  },
+  "require": {
+    "xenioushk/bwl-plugin-api": "^1.0"
+  },
   "require-dev": {
     "wp-coding-standards/wpcs": "^3.1",
     "phpcompatibility/phpcompatibility-wp": "2.1",
