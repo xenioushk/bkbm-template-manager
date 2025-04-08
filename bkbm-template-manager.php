@@ -116,7 +116,6 @@ if ( ! class_exists( 'BKBM_Template_Manager' ) ) {
                 define( 'BKBTPL_ADDON_CC_ID', '11888104' ); // Plugin codecanyon Id.
 
                 $this->included_files( $bkb_data ); // Include all the required files for Addon.
-                $this->bkbm_template_sidebars(); // Added custom wiidget area for Addon. @Introduced in version 1.0.1
 
                 // Initializing
 
@@ -259,39 +258,6 @@ if ( ! class_exists( 'BKBM_Template_Manager' ) ) {
             }
 
             return $single;
-        }
-
-
-        /**
-         * @description: Manager knowledge base template widgets.
-         * @since        version 1.0.1
-         * @update       23-03-2016
-         * */
-        function bkbm_template_sidebars() {
-
-            global $bkb_data;
-
-            // Default title tag for widget is h4.
-            $bkb_tpl_widget_heading_tag   = 'h4';
-            $bkb_tpl_widget_heading_class = 'widget-title';
-
-            // user can set their theme similiar heading tag for KB template widget.
-            if ( isset( $bkb_data['bkb_tpl_widget_heading_tag'] ) && $bkb_data['bkb_tpl_widget_heading_tag'] != '' ) {
-
-                $bkb_tpl_widget_heading_tag = $bkb_data['bkb_tpl_widget_heading_tag'];
-            }
-
-            register_sidebar(
-                [
-					'name'          => __( 'BKBM Custom Sidebar', 'bkb_tpl' ),
-					'id'            => 'bkbm_template_widget',
-					'description'   => __( 'Custom Sidebars for Knowledgebase plugin', 'bkb_tpl' ),
-					'before_widget' => '<aside id="%1$s" class="bkb-custom-sidebar %2$s">',
-					'after_widget'  => '</aside>',
-					'before_title'  => '<' . $bkb_tpl_widget_heading_tag . ' class="' . $bkb_tpl_widget_heading_class . '">',
-					'after_title'   => '</' . $bkb_tpl_widget_heading_tag . '>',
-                ]
-            );
         }
 
         function included_files() {

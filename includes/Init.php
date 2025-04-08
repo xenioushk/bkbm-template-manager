@@ -87,6 +87,7 @@ class Init {
 			// Base\FrontendInlineJs::class,
 			Base\PluginUpdate::class,
 			Base\Language::class,
+			Base\Sidebars::class,
 			Base\AdminAjaxHandlers::class,
 
 		];
