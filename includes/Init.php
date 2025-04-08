@@ -27,7 +27,7 @@ class Init {
 			'helpers' => self::get_helper_classes(),
 			'base'    => self::get_base_classes(),
 			'meta'    => self::get_meta_classes(),
-			// 'actions' => self::get_action_classes(),
+			'actions' => self::get_action_classes(),
 			'filters' => self::get_filter_classes(),
 			// 'notices'  => self::get_notices_classes(),
 		];
@@ -128,8 +128,8 @@ class Init {
 	private static function get_action_classes() {
 
 		$classes = [
-			Controllers\Actions\Admin\QuickBulkEdit::class,
-			Controllers\Actions\Admin\ManagePosts::class,
+			Controllers\Actions\Templates\Single::class,
+			Controllers\Actions\Templates\Sidebar::class,
 		];
 		return $classes;
 	}

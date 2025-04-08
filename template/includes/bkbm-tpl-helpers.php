@@ -1,7 +1,4 @@
 <?php
-
-
-
 use BwlKbManager\Base\BaseController;
 
 // KB Custom Breadcrumb
@@ -25,13 +22,13 @@ function bkbmTplWidgetsNotice() {
 		?>
 
 <p>
-  <i class="fa fa-info-circle"></i>
-  <strong><a href="<?php echo esc_url( home_url( '/' ) ); ?>wp-admin/widgets.php"
-      target="_blank"><?php _e( 'Click here', 'bkb_tpl' ); ?></a></strong>
-  <?php _e( 'to set sidebar widgets.', 'bkb_tpl' ); ?>
+    <i class="fa fa-info-circle"></i>
+    <strong><a href="<?php echo esc_url( home_url( '/' ) ); ?>wp-admin/widgets.php"
+        target="_blank"><?php _e( 'Click here', 'bkb_tpl' ); ?></a></strong>
+		<?php _e( 'to set sidebar widgets.', 'bkb_tpl' ); ?>
 </p>
 
-<?php
+		<?php
         return ob_get_clean();
     endif;
 }
@@ -209,89 +206,6 @@ function bkbm_before_main_content() {
 add_action( 'bkbm_after_main_content', 'bkbm_after_main_content' );
 
 function bkbm_after_main_content() {
-
-    if ( BKBM_BOOTSTRAP_FRAMEWORK == 1 ) {
-
-        $content_string = '</div>
-        </div>';
-    } else {
-        $content_string = '</div>
-        </div>';
-    }
-
-    echo $content_string;
-}
-
-// Single Page.
-
-add_action( 'bkbm_before_single_content', 'bkbm_before_single_content', 10, 1 );
-
-function bkbm_before_single_content( $layout = '1' ) {
-
-    if ( BKBM_BOOTSTRAP_FRAMEWORK == 1 ) {
-
-        $custom_class = ( $layout == 2 ) ? 'col-md-12 col-sm-12' : 'col-md-8 col-sm-12';
-
-        $content_string = '<div class="' . $custom_class . ' bkb-tpl-content-pad">
-
-                                            <div class="content">';
-    } else {
-
-        $custom_class = ( $layout == 2 ) ? 'bkbcol-1-1' : 'bkbcol-8-12';
-
-        $content_string = '<div class="' . $custom_class . ' bkb-tpl-content-pad">
-
-                                            <div class="content">';
-    }
-
-    echo $content_string;
-}
-
-add_action( 'bkbm_after_single_content', 'bkbm_after_single_content' );
-
-function bkbm_after_single_content() {
-
-    if ( BKBM_BOOTSTRAP_FRAMEWORK == 1 ) {
-
-        $content_string = '</div>
-        </div>';
-    } else {
-        $content_string = '</div>
-        </div>';
-    }
-
-    echo $content_string;
-}
-
-// Sidebar Page.
-
-add_action( 'bkbm_before_sidebar_content', 'bkbm_before_sidebar_content', 10, 1 );
-
-function bkbm_before_sidebar_content( $layout = '1' ) {
-
-    if ( BKBM_BOOTSTRAP_FRAMEWORK == 1 ) {
-
-        $custom_class = ( $layout == 2 ) ? 'col-md-12 col-sm-12' : 'col-md-4 col-sm-12';
-
-        $content_string = '<div class="' . $custom_class . ' bkb-tpl-sidebar-pad">
-
-                                            <div class="content">';
-    } else {
-
-        $custom_class = ( $layout == 2 ) ? 'bkbcol-1-1' : 'bkbcol-4-12';
-
-        $content_string = '<div class="' . $custom_class . ' bkb-tpl-sidebar-pad">
-
-                                            <div class="content">';
-    }
-
-    echo $content_string;
-}
-
-
-add_action( 'bkbm_after_sidebar_content', 'bkbm_after_sidebar_content' );
-
-function bkbm_after_sidebar_content() {
 
     if ( BKBM_BOOTSTRAP_FRAMEWORK == 1 ) {
 
