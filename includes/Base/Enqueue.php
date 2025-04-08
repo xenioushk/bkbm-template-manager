@@ -1,10 +1,10 @@
 <?php
-namespace BKBRKB\Base;
+namespace BKBTPL\Base;
 
 /**
  * Class for registering the plugin scripts and styles.
  *
- * @package BKBRKB
+ * @package BKBTPL
  */
 class Enqueue {
 
@@ -21,7 +21,7 @@ class Enqueue {
 	public function __construct() {
 		// Frontend script slug.
 		// This is required to hook the loclization texts.
-		$this->frontend_script_slug = 'bkb_rkb-frontend';
+		$this->frontend_script_slug = 'bkbm-tpl-frontend';
 	}
 
 	/**
@@ -39,9 +39,9 @@ class Enqueue {
 
 		wp_enqueue_style(
             $this->frontend_script_slug,
-            BKBRKB_PLUGIN_STYLES_ASSETS_DIR . 'frontend.css',
+            BKBTPL_PLUGIN_STYLES_ASSETS_DIR . 'frontend.css',
             [],
-            BKBRKB_PLUGIN_VERSION
+            BKBTPL_PLUGIN_VERSION
 		);
 	}
 
@@ -52,13 +52,13 @@ class Enqueue {
 
 		// Register JS
 
-		wp_enqueue_script(
-            $this->frontend_script_slug,
-            BKBRKB_PLUGIN_SCRIPTS_ASSETS_DIR . 'frontend.js',
-            [ 'jquery' ],
-            BKBRKB_PLUGIN_VERSION,
-            true
-        );
+		// wp_enqueue_script(
+		// $this->frontend_script_slug,
+		// BKBTPL_PLUGIN_SCRIPTS_ASSETS_DIR . 'frontend.js',
+		// [ 'jquery' ],
+		// BKBTPL_PLUGIN_VERSION,
+		// true
+		// );
 
 		// Load frontend variables used by the JS files.
 		$this->get_the_localization_texts();
@@ -73,11 +73,12 @@ class Enqueue {
 		// Frontend.
 		// Access data: KafwpbFrontendData.version
 		wp_localize_script(
-            $this->frontend_script_slug,
-            'KafwpbFrontendData',
+            // $this->frontend_script_slug,
+            'jquery',
+            'BkbTplFrontendData',
             [
-				'version' => BKBRKB_PLUGIN_VERSION,
-            ]
+				'version' => BKBTPL_PLUGIN_VERSION,
+			]
 		);
 	}
 }
