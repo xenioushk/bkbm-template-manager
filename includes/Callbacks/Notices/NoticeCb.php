@@ -1,14 +1,14 @@
 <?php
-namespace KAFWPB\Callbacks\Notices;
+namespace BKBTPL\Callbacks\Notices;
 
-use KAFWPB\Traits\TraitAdminNotice;
+use BKBTPL\Traits\TraitAdminNotice;
 
 /**
  * Class NoticeCb
  *
  * Handles the FAQ items shortcode callbacks.
  *
- * @package KAFWPB
+ * @package BKBTPL
  */
 class NoticeCb {
 

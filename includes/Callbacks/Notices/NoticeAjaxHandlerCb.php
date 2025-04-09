@@ -1,13 +1,13 @@
 <?php
 
-namespace KAFWPB\Callbacks\Notices;
+namespace BKBTPL\Callbacks\Notices;
 
 /**
  * Class NoticeAjaxHandlerCb
  *
  * Handles the notice ajax handler callbacks.
  *
- * @package KAFWPB
+ * @package BKBTPL
  */
 class NoticeAjaxHandlerCb {
 

@@ -148,8 +148,6 @@ class Init {
 			Controllers\Filters\Templates\Category::class,
 			Controllers\Filters\Templates\Tag::class,
 			Controllers\Filters\Templates\Single::class,
-			// Controllers\Filters\Admin\RKBFilters::class,
-			// Controllers\Filters\Admin\CustomColumns::class,
 		];
 		return $classes;
 	}
