@@ -79,7 +79,10 @@ $bkb_cat_pagination = 0;
 $bkb_cat_tpl_ipp    = -1;
 $paged              = 1;
 
-if ( isset( $bkb_data['bkb_cat_pagination_conditinal_fields'] ) && isset( $bkb_data['bkb_cat_pagination_conditinal_fields']['enabled'] ) && $bkb_data['bkb_cat_pagination_conditinal_fields']['enabled'] == 'on' && is_numeric( $bkb_data['bkb_cat_pagination_conditinal_fields']['bkb_cat_tpl_ipp'] ) ) {
+if ( isset( $bkb_data['bkb_cat_pagination_conditinal_fields'] )
+&& isset( $bkb_data['bkb_cat_pagination_conditinal_fields']['enabled'] )
+&& $bkb_data['bkb_cat_pagination_conditinal_fields']['enabled'] == 'on'
+&& is_numeric( $bkb_data['bkb_cat_pagination_conditinal_fields']['bkb_cat_tpl_ipp'] ) ) {
 
 	$bkb_cat_pagination = 1;
 	$bkb_cat_tpl_ipp    = $bkb_data['bkb_cat_pagination_conditinal_fields']['bkb_cat_tpl_ipp'];
