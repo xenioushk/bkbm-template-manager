@@ -1,5 +1,5 @@
 {
-  "name": "xenioushk/bwl_kb_manager",
+  "name": "xenioushk/bkbm-template-manager",
   "description": "Templify KB - Knowledge Base Addon",
   "type": "project",
   "autoload": {
