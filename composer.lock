@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8297e5d6f1e0b9977e5bf7489bdd3e93",
+    "content-hash": "31ccb35264730e7892877a425b35edc8",
     "packages": [
         {
             "name": "xenioushk/bwl-plugin-api",
