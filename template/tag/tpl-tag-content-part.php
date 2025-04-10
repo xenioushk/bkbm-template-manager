@@ -1,132 +1,129 @@
 <?php
-    
-      if ( $bkb_tag_tpl_layout == 2 ) {
 
-        $bkb_content_class = "bkbcol-1-1";
+if ( $bkb_tag_tpl_layout == 2 ) {
 
-    } else {
+	$bkb_content_class = 'bkbcol-1-1';
 
-        $bkb_tag_tpl_layout = 1;
-        $bkb_content_class = "bkbcol-8-12";
-    }
+} else {
+
+	$bkb_tag_tpl_layout = 1;
+	$bkb_content_class  = 'bkbcol-8-12';
+}
 
 ?>
 
 <?php do_action( 'bkbm_before_single_content',$bkb_tag_tpl_layout ); ?>
 
-<?php if (have_posts()) : ?>
+<?php if ( have_posts() ) : ?>
 
 <header class="bkbm-archive-header">
 
-  <?php echo do_shortcode('[bkbm_tpl_bc /]'); ?>
+	<?php echo do_shortcode( '[bkbm_tpl_bc /]' ); ?>
 
-  <h1 class="bkbm-archive-title">
-    <?php 
-                    $bkb_tpl_tag_head_default_title = __('Knowledge Base Tag:', 'bkb_tpl');
-                    $bkb_tpl_tag_head_title = ( isset( $bkb_data['bkb_tpl_tag_head_title'] ) && $bkb_data['bkb_tpl_tag_head_title'] != "" && $bkb_tpl_tag_head_default_title !=$bkb_data['bkb_tpl_tag_head_title'] ) ? $bkb_data['bkb_tpl_tag_head_title'] : $bkb_tpl_tag_head_default_title;
-                    echo $bkb_tpl_tag_head_title . ' ' . '<span>' . single_tag_title('', false) . '</span>'; 
-                    
-                    ?>
-  </h1>
+    <h1 class="bkbm-archive-title">
+    <?php
+                    $bkb_tpl_tag_head_default_title = __( 'Knowledge Base Tag:', 'bkb_tpl' );
+                    $bkb_tpl_tag_head_title         = ( isset( $bkb_data['bkb_tpl_tag_head_title'] ) && $bkb_data['bkb_tpl_tag_head_title'] != '' && $bkb_tpl_tag_head_default_title != $bkb_data['bkb_tpl_tag_head_title'] ) ? $bkb_data['bkb_tpl_tag_head_title'] : $bkb_tpl_tag_head_default_title;
+                    echo $bkb_tpl_tag_head_title . ' ' . '<span>' . single_tag_title( '', false ) . '</span>';
 
-  <?php if (category_description() && $bkb_tpl_show_tag_desc) : // Show an optional category description  ?>
-  <div class="bkbm-archive-meta"><?php echo category_description(); ?></div>
-  <?php endif; ?>
+	?>
+    </h1>
+
+	<?php if ( category_description() && $bkb_tpl_show_tag_desc ) : // Show an optional category description ?>
+    <div class="bkbm-archive-meta"><?php echo category_description(); ?></div>
+    <?php endif; ?>
 
 </header><!-- .archive-header -->
 
 <div class="bkb-taxonomy-content">
 
-  <?php
-                if ($bkb_tpl_search_box == 1) {
-                    echo do_shortcode('[bkb_search /]');
-                }
+	<?php
+	if ( $bkb_tpl_search_box == 1 ) {
+		echo do_shortcode( '[bkb_search /]' );
+	}
 
                 $current_queried_object = $wp_query->get_queried_object();
-                $tag_slug = $current_queried_object->slug;
-                
+                $tag_slug               = $current_queried_object->slug;
+
                 // If has child then I'm going to display the blocks.
-                
+
                 global $wpdb;
-                
+
                 $parent_tags_id = $current_queried_object->term_id;
 
-                $child_tags_id = $wpdb->get_col("SELECT term_id FROM $wpdb->term_taxonomy WHERE parent=$parent_tags_id");
-                
+                $child_tags_id = $wpdb->get_col( "SELECT term_id FROM $wpdb->term_taxonomy WHERE parent=$parent_tags_id" );
+
                 $bkb_tag_has_child = 0;
-                
-                $bkb_kb_tags_default_icon = "";
-                $posts_count = 1;
-                $hide_empty = 1;
 
-                 echo do_shortcode('[bkb_tags posts_count=1  tags="' . $tag_slug . '" cols=1 orderby="'. $bkb_tag_tpl_order_by . '" order="'. $bkb_tag_tpl_order . '" limit="'.$bkb_tag_tpl_ipp.'" show_title=0 bkb_list_type="' . $bkb_list_style_type . '" paginate="' . $bkb_tag_pagination . '" posts_per_page="' . $bkb_tag_tpl_ipp . '"  paged="' . $paged . '"/]');
-                    
-                if ( $child_tags_id ) {
-                    
-                    $bkb_child_cats = "";
+                $bkb_kb_tags_default_icon = '';
+                $posts_count              = 1;
+                $hide_empty               = 1;
 
-                    foreach ( $child_tags_id as $kid ) {
+                echo do_shortcode( '[bkb_tags posts_count=1  tags="' . $tag_slug . '" cols=1 orderby="' . $bkb_tag_tpl_order_by . '" order="' . $bkb_tag_tpl_order . '" limit="' . $bkb_tag_tpl_ipp . '" show_title=0 bkb_list_type="' . $bkb_list_style_type . '" paginate="' . $bkb_tag_pagination . '" posts_per_page="' . $bkb_tag_tpl_ipp . '"  paged="' . $paged . '"/]' );
 
-                        $childCatName = $wpdb->get_row("SELECT name, term_id,slug FROM $wpdb->terms WHERE term_id=$kid");
-                        
-                        $child_category_slug = $childCatName->slug;
+	if ( $child_tags_id ) {
 
-                        $bkb_kb_tags_icon = get_tax_meta($childCatName->term_id, "bkb_fa_id", true);
+		$bkb_child_cats = '';
 
-                        if ($bkb_kb_tags_icon == "") {
+		foreach ( $child_tags_id as $kid ) {
 
-                            $bkb_kb_tags_icon = $bkb_kb_tags_default_icon;
-                        }
+			$childCatName = $wpdb->get_row( "SELECT name, term_id,slug FROM $wpdb->terms WHERE term_id=$kid" );
 
-                        $bkb_tag_icon_string = '<i class="' . $bkb_kb_tags_icon . '"></i> &nbsp;';
+			$child_category_slug = $childCatName->slug;
 
-                        // Parent Category Items Count String.
+			$bkb_kb_tags_icon = get_tax_meta( $childCatName->term_id, 'bkb_fa_id', true );
 
-                        $bkb_child_tags_items_string = "";
+			if ( $bkb_kb_tags_icon == '' ) {
 
-                        $bkb_child_tags_total_items = bkb_get_sub_category_count($childCatName->term_id);
+				$bkb_kb_tags_icon = $bkb_kb_tags_default_icon;
+			}
 
-                        if ($posts_count == 1) {
+			$bkb_tag_icon_string = '<i class="' . $bkb_kb_tags_icon . '"></i> &nbsp;';
 
-                            $bkb_child_tags_items_string .= ' (' . $bkb_child_tags_total_items . ') ';
-                        }
+			// Parent Category Items Count String.
 
-                        // If user set hide elements if empty and total counted item is 0 then we print a null string.
+			$bkb_child_tags_items_string = '';
 
-                        if ($hide_empty == 1 && $bkb_child_tags_total_items == 0) {
+			$bkb_child_tags_total_items = bkb_get_sub_category_count( $childCatName->term_id );
 
-//                            $output .='';
-                            
-                        } else {
-                        
-                            $bkb_child_cats .= $child_category_slug.',';
-                            
-                        }
-                        
-                        $custom_category_slug = substr( $bkb_child_cats, 0, strlen( $bkb_child_cats )-1 );
-                        
-                        if( strlen( $custom_category_slug ) > 1 ) {
-                            $bkb_tag_has_child = 1;
-                        }
-                        
-                    }
- 
-                    
-                    if ( $bkb_tag_has_child == 1 ) {
- 
-                        echo do_shortcode('[bkb_tags count_info="1" posts_count="1" box_view="1" cols="2"  tags="' . $custom_category_slug . '" orderby="'. $bkb_tag_tpl_order_by . '" order="'. $bkb_tag_tpl_order . '" limit="'.$bkb_tag_tpl_ipp.'" bkb_list_type="' . $bkb_list_style_type . '" posts_per_page="' . $bkb_tag_tpl_ipp . '" /]');
-                        
-                    }
-                    
-                    
-                }
-                
-            ?>
+			if ( $posts_count == 1 ) {
+
+				$bkb_child_tags_items_string .= ' (' . $bkb_child_tags_total_items . ') ';
+			}
+
+			// If user set hide elements if empty and total counted item is 0 then we print a null string.
+
+			if ( $hide_empty == 1 && $bkb_child_tags_total_items == 0 ) {
+
+				// $output .='';
+
+			} else {
+
+				$bkb_child_cats .= $child_category_slug . ',';
+
+			}
+
+			$custom_category_slug = substr( $bkb_child_cats, 0, strlen( $bkb_child_cats ) - 1 );
+
+			if ( strlen( $custom_category_slug ) > 1 ) {
+				$bkb_tag_has_child = 1;
+			}
+		}
+
+
+		if ( $bkb_tag_has_child == 1 ) {
+
+			echo do_shortcode( '[bkb_tags count_info="1" posts_count="1" box_view="1" cols="2"  tags="' . $custom_category_slug . '" orderby="' . $bkb_tag_tpl_order_by . '" order="' . $bkb_tag_tpl_order . '" limit="' . $bkb_tag_tpl_ipp . '" bkb_list_type="' . $bkb_list_style_type . '" posts_per_page="' . $bkb_tag_tpl_ipp . '" /]' );
+
+		}
+	}
+
+	?>
 
 </div>
 
 <?php else : ?>
-<?php get_template_part('content', 'none'); ?>
+	<?php get_template_part( 'content', 'none' ); ?>
 <?php endif; ?>
 
-<?php do_action( 'bkbm_after_single_content'); ?>
+<?php do_action( 'bkbm_after_single_content' ); ?>

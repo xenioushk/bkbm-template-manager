@@ -1,11 +1,11 @@
 <?php
-namespace BKBRKB\Base;
+namespace BKBTPL\Base;
 
 /**
  * Class for including plucin required files.
  *
  * @since: 1.1.0
- * @package BKBRKB
+ * @package BKBTPL
  */
 class IncludePluginFiles {
 
@@ -38,13 +38,13 @@ class IncludePluginFiles {
 
 		if ( ! empty( $this->frontend_files ) ) {
 			foreach ( $this->frontend_files as $file ) {
-				include_once BKBRKB_PLUGIN_FILE_PATH . "/{$file}.php";
+				include_once BKBTPL_PLUGIN_FILE_PATH . "/{$file}.php";
 			}
 		}
 
 		if ( is_admin() && ! empty( $this->admin_files ) ) {
 			foreach ( $this->admin_files as $file ) {
-				include_once BKBRKB_PLUGIN_FILE_PATH . "/{$file}.php";
+				include_once BKBTPL_PLUGIN_FILE_PATH . "/{$file}.php";
 			}
 		}
 	}
@@ -53,14 +53,6 @@ class IncludePluginFiles {
 	 * Set the frontend files.
 	 */
 	private function set_frontend_files() {
-
-		// example
-		// $frontend_files = [
-		// 'includes/bptm-email-template',
-		// 'includes/bwl-pm-helper',
-		// 'includes/bwl-sql-helper',
-		// ];
-
 		$frontend_files = [];
 
 		return $frontend_files;

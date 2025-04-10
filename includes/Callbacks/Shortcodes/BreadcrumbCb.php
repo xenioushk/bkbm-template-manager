@@ -41,7 +41,7 @@ class BreadcrumbCb {
 			'icon' => '',
 		], $atts);
 
-		extract( $atts );
+		extract( $atts ); //phpcs:ignore
 
 		if ( ! empty( $icon ) ) {
 			$this->icon = $icon;

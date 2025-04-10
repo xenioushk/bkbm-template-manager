@@ -3,11 +3,12 @@
  * Template for displaying Knowledgebase Category posts.
  */
 // Load current theme header content.
+use BKBTPL\Helpers\PluginConstants;
 get_header();
 
 
 // Default Template Settings.
-// global $bkb_data;
+$bkb_data = PluginConstants::$plugin_options;
 
 $bkb_tpl_search_box    = 1;
 $bkb_tpl_show_cat_desc = 1;
@@ -90,13 +91,7 @@ if ( isset( $bkb_data['bkb_cat_pagination_conditinal_fields'] )
 
 }
 
-
-    /*
-     *@Since: Version 1.0.5
-     *@Action Ref: includes/bkbm-tpl-helpers.php
-     * */
-
-    do_action( 'bkbm_before_main_content' );
+do_action( 'bkbm_before_main_content' );
 
 foreach ( $layout as $post_layout ) :
 
@@ -116,11 +111,6 @@ endswitch;
 
         endforeach;
 
-    /*
-     *@Since: Version 1.0.5
-     *@Action Ref: includes/bkbm-tpl-helpers.php
-     * */
-
-    do_action( 'bkbm_after_main_content' );
+do_action( 'bkbm_after_main_content' );
 
 get_footer();

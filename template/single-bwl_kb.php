@@ -4,10 +4,11 @@
  *
  * The Template for displaying Knowledege Base single posts
  */
+use BKBTPL\Helpers\PluginConstants;
 get_header();
 
 // Default Template Settings.
-global $bkb_data;
+$bkb_data = PluginConstants::$plugin_options;
 
 $bkb_single_tpl_layout = 1; // 1=right_sidebar, 2=full_width, 3=left_sidebar
 
@@ -40,11 +41,6 @@ else : // right sidebar
 
 endif;
 
-/*
-     *@Since: Version 1.0.5
-     *@Action Ref: template/includes/bkbm-tpl-helpers.php
-     * */
-
 do_action( 'bkbm_before_main_content' );
 
 foreach ( $layout as $post_layout ) :
@@ -63,11 +59,6 @@ foreach ( $layout as $post_layout ) :
     endswitch;
 
 endforeach;
-
-/*
-     *@Since: Version 1.0.5
-     *@Action Ref: includes/bkbm-tpl-helpers.php
-     * */
 
 do_action( 'bkbm_after_main_content' );
 

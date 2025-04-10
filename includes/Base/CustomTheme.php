@@ -1,11 +1,11 @@
 <?php
-namespace KAFWPB\Base;
+namespace BKBTPL\Base;
 
 /**
  * Class for plugin custom theme.
  *
  * @since: 1.1.0
- * @package KAFWPB
+ * @package BKBTPL
  */
 class CustomTheme {
 
