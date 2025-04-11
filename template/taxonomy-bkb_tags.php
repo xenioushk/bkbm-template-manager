@@ -1,86 +1,78 @@
 <?php
 /**
- * The template for displaying Knowledgebase Tags pages
+ * The template for displaying Knowledgebase Tags posts.
+ *
+ * This template is used to display posts within a specific Knowledgebase tagegory.
+ * It includes layout settings, pagination, and dynamic content rendering for the tagegory page.
+ *
+ * @package BKBTPL
+ * @since 1.0.0
  */
+
+/**
+ * Default Template Settings
+ *
+ * Retrieves plugin options and sets default values for the template.
+ * - `$bkb_tpl_search_box`: Whether to display the search box (default: 1).
+ * - `$bkb_tpl_show_tag_desc`: Whether to display the tagegory description (default: 1).
+ * - `$bkb_list_style_type`: The style of the list (default: 'rounded').
+ * - `$bkb_tag_tpl_order_by`: The order by parameter for posts (default: 'date').
+ * - `$bkb_tag_tpl_order`: The order direction for posts (default: 'DESC').
+ * - `$bkb_tag_tpl_layout`: The layout type for the tagegory page (default: 1).
+ * - `$bkb_tag_pagination`: Whether pagination is enabled (default: 0).
+ * - `$bkb_tag_tpl_ipp`: Items per page (default: -1 for no limit).
+ * - `$paged`: Current page number (default: 1).
+ */
+
 use BKBTPL\Helpers\PluginConstants;
 get_header();
 
+
 // Default Template Settings.
-$bkb_data              = PluginConstants::$plugin_options;
-$bkb_tpl_search_box    = 1;
-$bkb_tpl_show_tag_desc = 1;
-$bkb_list_style_type   = ( isset( $bkb_data['bkb_tag_tpl_list_style'] ) && $bkb_data['bkb_tag_tpl_list_style'] != '' ) ? $bkb_data['bkb_tag_tpl_list_style'] : 'rounded'; // 1=rectangle 2=iconized 3=rounded 4=simple
-$bkb_tag_tpl_layout    = 1; // 1=right_sidebar, 2=full_width, 3=left_sidebar
+$bkb_data = PluginConstants::$plugin_options;
 
-// @Added: Version 1.0.1
-$bkb_tag_tpl_order_by = 'date'; // date=date, ID=ID, title=Title.
-$bkb_tag_tpl_order    = 'DESC'; // ASC=Ascending, DESC = Descending.
+$bkb_tpl_search_box    = $bkb_data['bkb_tpl_search_box'] ?? 1;
+$bkb_tpl_show_tag_desc = $bkb_data['bkb_tpl_show_tag_desc'] ?? 1;
+$bkb_list_style_type   = $bkb_data['bkb_tag_tpl_list_style'] ?? 'rounded';
+$bkb_tag_tpl_order_by  = $bkb_data['bkb_tag_tpl_order_by'] ?? 'date';
+$bkb_tag_tpl_order     = $bkb_data['bkb_tag_tpl_order'] ?? 'DESC';
 
-if ( isset( $bkb_data['bkb_tpl_search_box'] ) && $bkb_data['bkb_tpl_search_box'] == '' ) {
+$bkb_tag_pagination = 0;
+$bkb_tag_tpl_ipp    = -1;
+$paged              = get_query_var( 'paged', 1 );
 
-        $bkb_tpl_search_box = 0;
-}
-
-
-if ( isset( $bkb_data['bkb_tpl_show_tag_desc'] ) && $bkb_data['bkb_tpl_show_tag_desc'] == '' ) {
-
-        $bkb_tpl_show_tag_desc = 0;
-}
-
-// Layout Settings.
-
-if ( isset( $bkb_data['bkb_tag_tpl_layout'] ) && $bkb_data['bkb_tag_tpl_layout'] != '' ) {
-
-        $bkb_tag_tpl_layout = $bkb_data['bkb_tag_tpl_layout'];
-}
-
-if ( $bkb_tag_tpl_layout == 3 ) : // left sidebar
-
-    $layout = [
-
-        '0' => 'tpl-tag-sidebar-part',
-        '1' => 'tpl-tag-content-part',
-    ];
-
-elseif ( $bkb_tag_tpl_layout == 2 ) : // full width
-
-    $layout = [
-        '1' => 'tpl-tag-content-part',
-    ];
-else : // right sidebar
-
-    $layout = [
-        '0' => 'tpl-tag-content-part',
-        '1' => 'tpl-tag-sidebar-part',
-    ];
-
-endif;
-
-// @Description: Order By & Order Type Settings.
-// @Since: 1.0.1
-
-if ( isset( $bkb_data['bkb_tag_tpl_order_by'] ) ) {
-
-	$bkb_tag_tpl_order_by = $bkb_data['bkb_tag_tpl_order_by'];
-}
-
-if ( isset( $bkb_data['bkb_tag_tpl_order'] ) ) {
-
-	$bkb_tag_tpl_order = $bkb_data['bkb_tag_tpl_order'];
-}
-
-    // @Descriptio: Pagination
-    // @since: 1.0.1
-
-    $bkb_tag_pagination = 0;
-    $bkb_tag_tpl_ipp    = -1;
-    $paged              = 1;
-
-if ( isset( $bkb_data['bkb_tag_pagination_conditinal_fields'] ) && isset( $bkb_data['bkb_tag_pagination_conditinal_fields']['enabled'] ) && $bkb_data['bkb_tag_pagination_conditinal_fields']['enabled'] == 'on' && is_numeric( $bkb_data['bkb_tag_pagination_conditinal_fields']['bkb_tag_tpl_ipp'] ) ) {
+if ( isset( $bkb_data['bkb_tag_pagination_conditinal_fields'] )
+&& isset( $bkb_data['bkb_tag_pagination_conditinal_fields']['enabled'] )
+&& $bkb_data['bkb_tag_pagination_conditinal_fields']['enabled'] == 'on'
+&& is_numeric( $bkb_data['bkb_tag_pagination_conditinal_fields']['bkb_tag_tpl_ipp'] ) ) {
 
 	$bkb_tag_pagination = 1;
-	$bkb_tag_tpl_ipp    = $bkb_data['bkb_tag_pagination_conditinal_fields']['bkb_tag_tpl_ipp'];
-	$paged              = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+    $bkb_tag_tpl_ipp    = (int) $bkb_data['bkb_tag_pagination_conditinal_fields']['bkb_tag_tpl_ipp'];
+}
+
+// Layout settings.
+$bkb_tag_tpl_layout = $bkb_data['bkb_tag_tpl_layout'] ?? 1;
+switch ( $bkb_tag_tpl_layout ) {
+    case 2:
+        // full width
+        $layout = [
+            '1' => 'tpl-tag-content-part',
+        ];
+        break;
+    case 3:
+        // left sidebar
+        $layout = [
+
+            '0' => 'tpl-tag-sidebar-part',
+            '1' => 'tpl-tag-content-part',
+        ];
+        break;
+    default:
+		// right sidebar
+		$layout = [
+			'0' => 'tpl-tag-content-part',
+			'1' => 'tpl-tag-sidebar-part',
+		];
 }
 
 do_action( 'bkbm_before_main_content' );

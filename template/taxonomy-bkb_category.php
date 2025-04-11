@@ -5,8 +5,7 @@
  * This template is used to display posts within a specific Knowledgebase category.
  * It includes layout settings, pagination, and dynamic content rendering for the category page.
  *
- * @package BKBM_Template_Manager
- * @subpackage Templates
+ * @package BKBTPL
  * @since 1.0.0
  */
 
