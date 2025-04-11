@@ -78,13 +78,13 @@ $bkb_cat_pagination = 0;
 $bkb_cat_tpl_ipp = -1;
 $paged = 1;
                 
-    if ( isset($bkb_data['bkb_cat_pagination_conditinal_fields']) && isset($bkb_data['bkb_cat_pagination_conditinal_fields']['enabled']) && $bkb_data['bkb_cat_pagination_conditinal_fields']['enabled'] == 'on' && is_numeric( $bkb_data['bkb_cat_pagination_conditinal_fields']['bkb_cat_tpl_ipp']) ) {
+if (isset($bkb_data['bkb_cat_pagination_conditinal_fields']) && isset($bkb_data['bkb_cat_pagination_conditinal_fields']['enabled']) && $bkb_data['bkb_cat_pagination_conditinal_fields']['enabled'] == 'on' && is_numeric($bkb_data['bkb_cat_pagination_conditinal_fields']['bkb_cat_tpl_ipp']) ) {
         
-        $bkb_cat_pagination = 1;                
-        $bkb_cat_tpl_ipp = $bkb_data['bkb_cat_pagination_conditinal_fields']['bkb_cat_tpl_ipp'];
-        $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+    $bkb_cat_pagination = 1;                
+    $bkb_cat_tpl_ipp = $bkb_data['bkb_cat_pagination_conditinal_fields']['bkb_cat_tpl_ipp'];
+    $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
         
-    }
+}
 
     /*
      *@Since: Version 1.0.5
@@ -93,24 +93,24 @@ $paged = 1;
 
     do_action('bkbm_before_main_content');
     
-         foreach( $layout as $post_layout ) :
+foreach( $layout as $post_layout ) :
                         
-            switch ($post_layout) :
+    switch ($post_layout) :
 
-                case 'tpl-cat-content-part':
+    case 'tpl-cat-content-part':
 
-                     include_once 'category/tpl-cat-content-part.php';
+         include_once 'category/tpl-cat-content-part.php';
 
-                break;
+        break;
 
-                case 'tpl-cat-sidebar-part':
-                    include_once 'category/tpl-cat-sidebar-part.php';
-                break;
+    case 'tpl-cat-sidebar-part':
+        include_once 'category/tpl-cat-sidebar-part.php';
+        break;
 
-            endswitch;
+    endswitch;
 
 
-        endforeach;
+endforeach;
         
     /*
      *@Since: Version 1.0.5

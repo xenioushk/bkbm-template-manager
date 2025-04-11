@@ -58,15 +58,15 @@ endif;
 // @Description: Order By & Order Type Settings.
 // @Since: 1.0.1
 
-    if (isset($bkb_data['bkb_tag_tpl_order_by'])) {
+if (isset($bkb_data['bkb_tag_tpl_order_by'])) {
 
-        $bkb_tag_tpl_order_by = $bkb_data['bkb_tag_tpl_order_by'];
-    }
+    $bkb_tag_tpl_order_by = $bkb_data['bkb_tag_tpl_order_by'];
+}
 
-    if (isset($bkb_data['bkb_tag_tpl_order'])) {
+if (isset($bkb_data['bkb_tag_tpl_order'])) {
 
-        $bkb_tag_tpl_order = $bkb_data['bkb_tag_tpl_order'];
-    }
+    $bkb_tag_tpl_order = $bkb_data['bkb_tag_tpl_order'];
+}
 
     // @Descriptio: Pagination
     // @since: 1.0.1
@@ -75,12 +75,12 @@ endif;
     $bkb_tag_tpl_ipp = -1;
     $paged = 1;
 
-    if ( isset($bkb_data['bkb_tag_pagination_conditinal_fields']) && isset($bkb_data['bkb_tag_pagination_conditinal_fields']['enabled']) && $bkb_data['bkb_tag_pagination_conditinal_fields']['enabled'] == 'on' && is_numeric($bkb_data['bkb_tag_pagination_conditinal_fields']['bkb_tag_tpl_ipp'])) {
+if (isset($bkb_data['bkb_tag_pagination_conditinal_fields']) && isset($bkb_data['bkb_tag_pagination_conditinal_fields']['enabled']) && $bkb_data['bkb_tag_pagination_conditinal_fields']['enabled'] == 'on' && is_numeric($bkb_data['bkb_tag_pagination_conditinal_fields']['bkb_tag_tpl_ipp'])) {
 
-        $bkb_tag_pagination = 1;
-        $bkb_tag_tpl_ipp = $bkb_data['bkb_tag_pagination_conditinal_fields']['bkb_tag_tpl_ipp'];
-        $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
-    }
+    $bkb_tag_pagination = 1;
+    $bkb_tag_tpl_ipp = $bkb_data['bkb_tag_pagination_conditinal_fields']['bkb_tag_tpl_ipp'];
+    $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+}
     
     /*
      *@Since: Version 1.0.5
@@ -89,24 +89,24 @@ endif;
 
     do_action('bkbm_before_main_content');
     
-         foreach( $layout as $post_layout ) :
+foreach( $layout as $post_layout ) :
                         
-            switch ($post_layout) :
+    switch ($post_layout) :
 
-                case 'tpl-tag-content-part':
+    case 'tpl-tag-content-part':
 
-                     include_once 'tag/tpl-tag-content-part.php';
+         include_once 'tag/tpl-tag-content-part.php';
 
-                break;
+        break;
 
-                case 'tpl-tag-sidebar-part':
-                    include_once 'tag/tpl-tag-sidebar-part.php';
-                break;
+    case 'tpl-tag-sidebar-part':
+        include_once 'tag/tpl-tag-sidebar-part.php';
+        break;
 
-            endswitch;
+    endswitch;
 
 
-        endforeach;
+endforeach;
     
     /*
      *@Since: Version 1.0.5
