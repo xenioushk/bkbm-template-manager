@@ -19,13 +19,15 @@ if ( $bkb_cat_tpl_layout == 2 ) {
 
 	<?php echo do_shortcode( '[bkbm_tpl_bc /]' ); ?>
 
+	<?php
+
+        $bkb_tpl_cat_head_title = $bkb_data['bkb_tpl_cat_head_title'] ?? esc_html__( 'Knowledge Base Category:', 'bkb_tpl' );
+
+	?>
+
     <h1 class="bkbm-archive-title">
     <?php
-
-            $bkb_tpl_cat_head_default_title = __( 'Knowledge Base Category:', 'bkb_tpl' );
-            $bkb_tpl_cat_head_title         = ( isset( $bkb_data['bkb_tpl_cat_head_title'] ) && $bkb_data['bkb_tpl_cat_head_title'] != '' && $bkb_tpl_cat_head_default_title != $bkb_data['bkb_tpl_cat_head_title'] ) ? $bkb_data['bkb_tpl_cat_head_title'] : $bkb_tpl_cat_head_default_title;
-            echo $bkb_tpl_cat_head_title . ' ' . '<span>' . single_cat_title( '', false ) . '</span>';
-
+        echo $bkb_tpl_cat_head_title . ' ' . '<span>' . single_cat_title( '', false ) . '</span>'; //phpcs:ignore
 	?>
     </h1>
 
@@ -121,8 +123,8 @@ if ( $bkb_cat_tpl_layout == 2 ) {
 
 </div>
 
-<?php else : ?>
-	<?php get_template_part( 'content', 'none' ); ?>
-<?php endif; ?>
-
-<?php do_action( 'bkbm_after_single_content' ); ?>
+	<?php
+else :
+    get_template_part( 'content', 'none' );
+endif;
+    do_action( 'bkbm_after_single_content' );
