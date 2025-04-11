@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-04-08T07:05:40+00:00\n"
+"POT-Creation-Date: 2025-04-11T16:12:25+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: bkb_tpl\n"
@@ -39,12 +39,20 @@ msgstr ""
 msgid "https://bluewindlab.net"
 msgstr ""
 
-#: bkbm-template-manager.php:379
+#: includes/Base/Sidebars.php:26
 msgid "BKBM Custom Sidebar"
 msgstr ""
 
-#: bkbm-template-manager.php:381
+#: includes/Base/Sidebars.php:28
 msgid "Custom Sidebars for Knowledgebase plugin"
+msgstr ""
+
+#: includes/Callbacks/Shortcodes/BreadcrumbCb.php:61
+msgid "Knowledge Base"
+msgstr ""
+
+#: includes/Callbacks/Shortcodes/BreadcrumbCb.php:91
+msgid "Home"
 msgstr ""
 
 #: includes/Controllers/PluginMeta/MetaInfo.php:34
@@ -59,20 +67,8 @@ msgstr ""
 msgid "Knowledge Base Category:"
 msgstr ""
 
-#: template/includes/bkbm-tpl-helpers.php:29
-msgid "Click here"
-msgstr ""
-
-#: template/includes/bkbm-tpl-helpers.php:30
-msgid "to set sidebar widgets."
-msgstr ""
-
-#: template/includes/bkbm-tpl-helpers.php:53
-msgid "Knowledge Base"
-msgstr ""
-
-#: template/includes/bkbm-tpl-helpers.php:83
-msgid "Home"
+#: template/category/tpl-cat-sidebar-part.php:8
+msgid "No widgets found in category template sidebar."
 msgstr ""
 
 #: template/single/tpl-single-content-part.php:43
@@ -109,6 +105,14 @@ msgctxt "Next post link"
 msgid "&rarr;"
 msgstr ""
 
+#: template/single/tpl-single-sidebar-part.php:8
+msgid "No widgets found in single template sidebar."
+msgstr ""
+
 #: template/tag/tpl-tag-content-part.php:25
 msgid "Knowledge Base Tag:"
+msgstr ""
+
+#: template/tag/tpl-tag-sidebar-part.php:8
+msgid "No widgets found in tag template sidebar."
 msgstr ""
