@@ -22,25 +22,29 @@ class PaginationCb {
 
 		$options = PluginConstants::$plugin_options;
 
-		if ( ! is_admin() && $query->is_main_query() ) {
-			$taxonomies = [
-				'bkb_cat' => 'bkb_cat_pagination_conditinal_fields',
-				'bkb_tag' => 'bkb_tag_pagination_conditinal_fields',
-			];
+		if ( ! is_admin()
+				&& is_tax( 'bkb_category' )
+				&& $query->is_main_query()
+				&& isset( $options['bkb_cat_pagination_conditinal_fields'] )
+				&& isset( $options['bkb_cat_pagination_conditinal_fields']['enabled'] )
+				&& $options['bkb_cat_pagination_conditinal_fields']['enabled'] == 'on'
+				&& is_numeric( $options['bkb_cat_pagination_conditinal_fields']['bkb_cat_tpl_ipp'] )
+		) {
+				return $query->set( 'posts_per_page', $options['bkb_cat_pagination_conditinal_fields']['bkb_cat_tpl_ipp'] );
+		} elseif ( ! is_admin()
+				&& is_tax( 'bkb_tags' )
+				&& $query->is_main_query()
+				&& isset( $options['bkb_tag_pagination_conditinal_fields'] )
+				&& isset( $options['bkb_tag_pagination_conditinal_fields']['enabled'] )
+				&& $options['bkb_tag_pagination_conditinal_fields']['enabled'] == 'on'
+				&& is_numeric( $options['bkb_tag_pagination_conditinal_fields']['bkb_tag_tpl_ipp'] )
+		) {
 
-			foreach ( $taxonomies as $taxonomy => $field_key ) {
-				if ( is_tax( $taxonomy ) &&
-					isset( $options[ $field_key ]['enabled'] ) &&
-					$options[ $field_key ]['enabled'] === 'on' &&
-					is_numeric( $options[ $field_key ][ $taxonomy . '_tpl_ipp' ] )
-				) {
-					$query->set( 'posts_per_page', $options[ $field_key ][ $taxonomy . '_tpl_ipp' ] );
-					break;
-				}
-			}
+				return $query->set( 'posts_per_page', $options['bkb_tag_pagination_conditinal_fields']['bkb_tag_tpl_ipp'] );
+		} else {
+				// Do nothing.
+				return $query;
 		}
-
-		return $query;
 
 	}
 }
