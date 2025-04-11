@@ -28,12 +28,6 @@ class CategoryCb extends ViewApi {
 			return $template;
 		}
 
-			$template = BkbTplHelpers::bkb_get_template_hierarchy( 'taxonomy-' . BKBM_TAX_CAT );
-
-			$data = [
-				'bkb_data' => PluginConstants::$plugin_options,
-			];
-			$this->render( $template, $data );
-
+		return BkbTplHelpers::bkb_get_template_hierarchy( 'taxonomy-' . BKBM_TAX_CAT );
 	}
 }

@@ -20,14 +20,12 @@ class SingleCb {
 	 */
 	public function get_template( $single ) {
 
-		global $post;
+		// Check if the current page is a KB single.
 
-		if ( is_singular( BKBM_POST_TYPE ) ) {
-
-			// Updated in version 1.0.5
-			return BkbTplHelpers::bkb_get_template_hierarchy( 'single-' . BKBM_POST_TYPE );
+		if ( ! is_singular( BKBM_POST_TYPE ) ) {
+			return $single;
 		}
 
-		return $single;
+		return BkbTplHelpers::bkb_get_template_hierarchy( 'single-' . BKBM_POST_TYPE );
 	}
 }

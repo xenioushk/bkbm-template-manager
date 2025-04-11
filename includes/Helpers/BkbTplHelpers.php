@@ -28,7 +28,6 @@ class BkbTplHelpers {
         if ( ! file_exists( $file ) ) {
             return ''; // Return an empty string or handle the error appropriately.
         }
-
         /**
          * Filter the template file path.
          *

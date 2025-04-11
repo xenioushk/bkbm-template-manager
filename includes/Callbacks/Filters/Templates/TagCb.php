@@ -20,11 +20,13 @@ class TagCb {
 	 */
 	public function get_template( $template ) {
 
-		if ( is_tax( BKBM_TAX_TAGS ) ) {
+		// Check if the current page is a KB Tag.
 
-			return BkbTplHelpers::bkb_get_template_hierarchy( 'taxonomy-' . BKBM_TAX_TAGS );
+		if ( ! is_tax( BKBM_TAX_TAGS ) ) {
+			return $template;
 		}
-		return $template;
+
+		return BkbTplHelpers::bkb_get_template_hierarchy( 'taxonomy-' . BKBM_TAX_TAGS );
 
 	}
 }
