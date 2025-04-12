@@ -79,6 +79,14 @@ function init_bkbtpl() {
 	}
 
 	if ( class_exists( 'BKBTPL\\Init' ) ) {
+
+		// Check the required minimum version of the parent plugin.
+		if ( ! ( Helpers\DependencyManager::check_minimum_version_requirement_status() ) ) {
+			add_action( 'admin_notices', [ Helpers\DependencyManager::class, 'notice_min_version_main_plugin' ] );
+			return;
+		}
+
+		// Initialize the plugin.
 		Init::register_services();
 	}
 }
