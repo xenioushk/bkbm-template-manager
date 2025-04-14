@@ -5,7 +5,7 @@
  * Plugin URI: https://1.envato.market/bkbm-wp
  * Description: Addon allows you to display Knowledge Base categories, tags and single posts in custom templates without modifying any of the files inside theme forlder.
  * Author: Md Mahbub Alam Khan
- * Version: 2.0.0
+ * Version: 2.0.1
  * Author URI: https://bluewindlab.net
  * WP Requires at least: 6.0+
  * Text Domain: bkb_tpl
