@@ -4,46 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "31ccb35264730e7892877a425b35edc8",
-    "packages": [
-        {
-            "name": "xenioushk/bwl-plugin-api",
-            "version": "1.0.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/xenioushk/bwl-plugin-api.git",
-                "reference": "022b6d2dfc2f2081f8d38605ab6532bc3b4ee135"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/xenioushk/bwl-plugin-api/zipball/022b6d2dfc2f2081f8d38605ab6532bc3b4ee135",
-                "reference": "022b6d2dfc2f2081f8d38605ab6532bc3b4ee135",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Xenioushk\\BwlPluginApi\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Md Mahbub Alam Khan",
-                    "email": "hkhan.cse@gmail.com"
-                }
-            ],
-            "description": "Plugin api for BWL plugins.",
-            "support": {
-                "issues": "https://github.com/xenioushk/bwl-plugin-api/issues",
-                "source": "https://github.com/xenioushk/bwl-plugin-api/tree/1.0.5"
-            },
-            "time": "2025-04-06T05:10:24+00:00"
-        }
-    ],
+    "content-hash": "7947cfc5f0d35130fc2ef5804fbfdb04",
+    "packages": [],
     "packages-dev": [
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",
@@ -479,16 +441,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.12.1",
+            "version": "3.12.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "ea16a1f3719783345febd3aab41beb55c8c84bfd"
+                "reference": "6d4cf6032d4b718f168c90a96e36c7d0eaacb2aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/ea16a1f3719783345febd3aab41beb55c8c84bfd",
-                "reference": "ea16a1f3719783345febd3aab41beb55c8c84bfd",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/6d4cf6032d4b718f168c90a96e36c7d0eaacb2aa",
+                "reference": "6d4cf6032d4b718f168c90a96e36c7d0eaacb2aa",
                 "shasum": ""
             },
             "require": {
@@ -559,7 +521,7 @@
                     "type": "thanks_dev"
                 }
             ],
-            "time": "2025-04-04T12:57:55+00:00"
+            "time": "2025-04-13T04:10:18+00:00"
         },
         {
             "name": "wp-coding-standards/wpcs",

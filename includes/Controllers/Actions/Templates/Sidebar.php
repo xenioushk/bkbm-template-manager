@@ -5,7 +5,7 @@ use Xenioushk\BwlPluginApi\Api\Actions\ActionsApi;
 use BKBTPL\Callbacks\Actions\Templates\SidebarCb;
 
 /**
- * Class for registering the frontend filters.
+ * Class for registering the frontend sidebar actions.
  *
  * @since: 1.1.0
  * @package BKBTPL
