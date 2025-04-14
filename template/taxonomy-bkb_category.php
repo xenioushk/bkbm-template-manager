@@ -18,7 +18,7 @@
  * - `$bkb_list_style_type`: The style of the list (default: 'rounded').
  * - `$bkb_cat_tpl_order_by`: The order by parameter for posts (default: 'date').
  * - `$bkb_cat_tpl_order`: The order direction for posts (default: 'DESC').
- * - `$bkb_cat_tpl_layout`: The layout type for the category page (default: 1).
+ * - `$bkb_tpl_layout`: The layout type for the category page (default: 1).
  * - `$bkb_cat_pagination`: Whether pagination is enabled (default: 0).
  * - `$bkb_cat_tpl_ipp`: Items per page (default: -1 for no limit).
  * - `$paged`: Current page number (default: 1).
@@ -30,6 +30,9 @@ get_header();
 
 // Default Template Settings.
 $bkb_data = PluginConstants::$plugin_options;
+
+// Template Type.
+$bkb_template = 'category';
 
 $bkb_tpl_search_box    = $bkb_data['bkb_tpl_search_box'] ?? 1;
 $bkb_tpl_show_cat_desc = $bkb_data['bkb_tpl_show_cat_desc'] ?? 1;
@@ -51,8 +54,8 @@ if ( isset( $bkb_data['bkb_cat_pagination_conditinal_fields'] )
 }
 
 // Layout settings.
-$bkb_cat_tpl_layout = $bkb_data['bkb_cat_tpl_layout'] ?? 1;
-switch ( $bkb_cat_tpl_layout ) {
+$bkb_tpl_layout = $bkb_data['bkb_cat_tpl_layout'] ?? 1;
+switch ( $bkb_tpl_layout ) {
     case 2:
         // full width
         $layout = [
@@ -87,7 +90,7 @@ foreach ( $layout as $post_layout ) :
             break;
 
 		case 'tpl-cat-sidebar-part':
-			include_once 'category/tpl-cat-sidebar-part.php';
+            include_once 'sidebar/tpl-sidebar-part.php';
             break;
 
 endswitch;

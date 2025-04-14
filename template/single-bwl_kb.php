@@ -12,9 +12,12 @@ get_header();
 // Default Template Settings.
 $bkb_data = PluginConstants::$plugin_options;
 
+// Template Type.
+$bkb_template = 'single';
+
 // Layout settings.
-$bkb_single_tpl_layout = $bkb_data['bkb_single_tpl_layout'] ?? 1;
-switch ( $bkb_single_tpl_layout ) {
+$bkb_tpl_layout = $bkb_data['bkb_single_tpl_layout'] ?? 1;
+switch ( $bkb_tpl_layout ) {
     case 2:
         // full width
         $layout = [
@@ -49,7 +52,7 @@ foreach ( $layout as $post_layout ) :
             break;
 
         case 'tpl-single-sidebar-part':
-            include_once 'single/tpl-single-sidebar-part.php';
+            include_once 'sidebar/tpl-sidebar-part.php';
             break;
 
     endswitch;

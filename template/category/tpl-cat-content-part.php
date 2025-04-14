@@ -1,17 +1,17 @@
 <?php
 global $wp_query;
-if ( $bkb_cat_tpl_layout == 2 ) {
+if ( $bkb_tpl_layout == 2 ) {
 
     $bkb_content_class = 'bkbcol-1-1';
 } else {
 
-    $bkb_cat_tpl_layout = 1;
-    $bkb_content_class  = 'bkbcol-8-12';
+    $bkb_tpl_layout    = 1;
+    $bkb_content_class = 'bkbcol-8-12';
 }
 
 ?>
 
-<?php do_action( 'bkbm_before_single_content', $bkb_cat_tpl_layout ); ?>
+<?php do_action( 'bkbm_before_single_content', $bkb_tpl_layout ); ?>
 
 <?php if ( have_posts() ) : ?>
 

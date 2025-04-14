@@ -31,6 +31,9 @@ get_header();
 // Default Template Settings.
 $bkb_data = PluginConstants::$plugin_options;
 
+// Template Type.
+$bkb_template = 'tags';
+
 $bkb_tpl_search_box    = $bkb_data['bkb_tpl_search_box'] ?? 1;
 $bkb_tpl_show_tag_desc = $bkb_data['bkb_tpl_show_tag_desc'] ?? 1;
 $bkb_list_style_type   = $bkb_data['bkb_tag_tpl_list_style'] ?? 'rounded';
@@ -51,8 +54,8 @@ if ( isset( $bkb_data['bkb_tag_pagination_conditinal_fields'] )
 }
 
 // Layout settings.
-$bkb_tag_tpl_layout = $bkb_data['bkb_tag_tpl_layout'] ?? 1;
-switch ( $bkb_tag_tpl_layout ) {
+$bkb_tpl_layout = $bkb_data['bkb_tag_tpl_layout'] ?? 1;
+switch ( $bkb_tpl_layout ) {
     case 2:
         // full width
         $layout = [
@@ -87,7 +90,7 @@ foreach ( $layout as $post_layout ) :
             break;
 
 		case 'tpl-tag-sidebar-part':
-			include_once 'tag/tpl-tag-sidebar-part.php';
+            include_once 'sidebar/tpl-sidebar-part.php';
             break;
 
 endswitch;
