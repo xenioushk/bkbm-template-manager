@@ -52,13 +52,13 @@ class Enqueue {
 
 		// Register JS
 
-		wp_enqueue_script(
-            $this->frontend_script_slug,
-            BKBTPL_PLUGIN_SCRIPTS_ASSETS_DIR . 'frontend.js',
-            [ 'jquery' ],
-            BKBTPL_PLUGIN_VERSION,
-            true
-		);
+		// wp_enqueue_script(
+		// $this->frontend_script_slug,
+		// BKBTPL_PLUGIN_SCRIPTS_ASSETS_DIR . 'frontend.js',
+		// [ 'jquery' ],
+		// BKBTPL_PLUGIN_VERSION,
+		// true
+		// );
 
 		// Load frontend variables used by the JS files.
 		$this->get_the_localization_texts();
@@ -73,7 +73,7 @@ class Enqueue {
 		// Frontend.
 		// Access data: BkbTplFrontendData.version
 		wp_localize_script(
-            $this->frontend_script_slug,
+            'jquery',
             'BkbTplFrontendData',
             [
 				'version' => BKBTPL_PLUGIN_VERSION,

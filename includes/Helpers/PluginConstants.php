@@ -67,8 +67,11 @@ class PluginConstants {
 	 * @example_param: Name,PluginURI,Description,Author,Version,AuthorURI,RequiresAtLeast,TestedUpTo,TextDomain,DomainPath
 	 */
 	private static function set_base_constants() {
-
-		$plugin_data = get_plugin_data( BKBTPL_PLUGIN_DIR . '/' . BKBTPL_PLUGIN_ROOT_FILE );
+		// This is super important to check if the get_plugin_data function is already loaded or not.
+		if ( ! function_exists( 'get_plugin_data' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		}
+		$plugin_data = get_plugin_data( BKBTPL_PLUGIN_DIR . BKBTPL_PLUGIN_ROOT_FILE );
 
 		define( 'BKBTPL_PLUGIN_VERSION', $plugin_data['Version'] ?? '1.0.0' );
 		define( 'BKBTPL_PLUGIN_TITLE', $plugin_data['Name'] ?? 'Templify KB - Knowledge Base Addon' );
