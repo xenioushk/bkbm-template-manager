@@ -3,6 +3,8 @@
 /**
  * The template for displaying Knowledgebase single posts.
  *
+ * Template Version: 2.0.0
+ *
  * @package BKBTPL
  * @since 1.0.0
  */
