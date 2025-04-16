@@ -21,8 +21,13 @@ class SidebarCb {
 		? ( $layout === 2 ? 'col-md-12 col-sm-12' : 'col-md-4 col-sm-12' )
 		: ( $layout === 2 ? 'bkbcol-1-1' : 'bkbcol-4-12' );
 
-		$content_string = '<div class="' . $custom_class . ' bkb-tpl-sidebar-pad">
-                    <div class="content">';
+		$custom_class = $custom_class . ' bkb-tpl-sidebar-pad';
+
+		$sidebar_class = apply_filters( 'bkbm_sidebar_custom_class', $custom_class );
+		$sidebar_id    = apply_filters( 'bkbm_sidebar_custom_id', 'secondary' );
+
+		$content_string = "<div id='{$sidebar_id}' class='{$sidebar_class}'>
+                    <div class='content'>";
 
 		echo $content_string;//phpcs:ignore
 	}

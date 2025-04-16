@@ -19,6 +19,8 @@ class MainContentCb {
 		? '<div class="container bkb_tpl_custom_margin"><div class="row">'
 		: '<div class="bkbm-grid-container"><div class="bkbm-grid bkbm-grid-pad bwl-row-cols-2-1 bkb_tpl_custom_margin">';
 
+		$content_string = apply_filters( 'bkbm_before_main_content_wrapper', $content_string );
+
 		echo $content_string; //phpcs:ignore
 	}
 
@@ -29,6 +31,8 @@ class MainContentCb {
 
 			$content_string = '</div>
         </div>';
+
+				$content_string = apply_filters( 'bkbm_after_main_content_wrapper', $content_string );
 
 			echo $content_string; //phpcs:ignore
 	}
