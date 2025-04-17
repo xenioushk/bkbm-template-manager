@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Name: Templify KB - Knowledge Base Addon
  * Plugin URI: https://1.envato.market/bkbm-wp
@@ -17,7 +16,6 @@
  * @link https://codecanyon.net/user/xenioushk
  * @copyright 2025 BlueWindLab
  */
-
 
 namespace BKBTPL;
 

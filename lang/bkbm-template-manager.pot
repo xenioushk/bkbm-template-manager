@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Templify KB - Knowledge Base Addon plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Templify KB - Knowledge Base Addon 2.0.0\n"
+"Project-Id-Version: Templify KB - Knowledge Base Addon 2.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/bkbm-template-manager\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-04-11T16:12:25+00:00\n"
+"POT-Creation-Date: 2025-04-17T08:56:28+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: bkb_tpl\n"
@@ -63,12 +63,17 @@ msgstr ""
 msgid "Docs"
 msgstr ""
 
-#: template/category/tpl-cat-content-part.php:25
+#. translators: 1: Plugin name, 2: Addon title, 3: Current version, 4: Minimum required version
+#: includes/Helpers/DependencyManager.php:123
+msgid "The %2$s requires %1$s %4$s or higher. You are using %3$s"
+msgstr ""
+
+#: template/category/tpl-cat-content-part.php:24
 msgid "Knowledge Base Category:"
 msgstr ""
 
-#: template/category/tpl-cat-sidebar-part.php:8
-msgid "No widgets found in category template sidebar."
+#: template/sidebar/tpl-sidebar-part.php:31
+msgid "No widgets found."
 msgstr ""
 
 #: template/single/tpl-single-content-part.php:43
@@ -105,14 +110,6 @@ msgctxt "Next post link"
 msgid "&rarr;"
 msgstr ""
 
-#: template/single/tpl-single-sidebar-part.php:8
-msgid "No widgets found in single template sidebar."
-msgstr ""
-
 #: template/tag/tpl-tag-content-part.php:25
 msgid "Knowledge Base Tag:"
-msgstr ""
-
-#: template/tag/tpl-tag-sidebar-part.php:8
-msgid "No widgets found in tag template sidebar."
 msgstr ""
