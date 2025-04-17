@@ -78,8 +78,11 @@ class DependencyManager {
 		}
 		$plugin_data = get_plugin_data( WP_PLUGIN_DIR . '/bwl-kb-manager/bwl-knowledge-base-manager.php' );
 
-		define( 'BKBM_CURRNET_PLUGIN_VERSION', $plugin_data['Version'] );
-		return ( version_compare( $plugin_data['Version'], BKBTPL_MIN_BKBM_VERSION, '>=' ) );
+		if ( ! defined( 'BKBM_CURRENT_PLUGIN_VERSION' ) ) {
+			define( 'BKBM_CURRENT_PLUGIN_VERSION', $plugin_data['Version'] );
+		}
+
+		return ( version_compare( BKBM_CURRENT_PLUGIN_VERSION, BKBTPL_MIN_BKBM_VERSION, '>=' ) );
 	}
 
 	/**
@@ -124,7 +127,7 @@ class DependencyManager {
             esc_html__( 'The %2$s requires %1$s %4$s or higher. You are using %3$s', 'bkb_tpl' ),
             self::$bkbm_url,
             self::$addon_title,
-            BKBM_CURRNET_PLUGIN_VERSION,
+            BKBM_CURRENT_PLUGIN_VERSION,
             BKBTPL_MIN_BKBM_VERSION
         );
 
