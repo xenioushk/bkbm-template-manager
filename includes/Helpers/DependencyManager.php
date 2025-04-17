@@ -62,7 +62,7 @@ class DependencyManager {
 	 * Set the plugin dependency constants.
 	 */
 	private static function set_dependency_constants() {
-		define( 'BKBTPL_MIN_BKBM_VERSION', '1.5.9' );
+		define( 'BKBTPL_MIN_BKBM_VERSION', '1.5.7' );
 		define( 'BKBTPL_MIN_PHP_VERSION', '7.0' );
 	}
 
@@ -77,6 +77,7 @@ class DependencyManager {
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		}
 		$plugin_data = get_plugin_data( WP_PLUGIN_DIR . '/bwl-kb-manager/bwl-knowledge-base-manager.php' );
+
 		define( 'BKBM_CURRNET_PLUGIN_VERSION', $plugin_data['Version'] );
 		return ( version_compare( $plugin_data['Version'], BKBTPL_MIN_BKBM_VERSION, '>=' ) );
 	}
