@@ -31,12 +31,17 @@ class MetaInfo {
 			// nt = 1 // new tab.
 			$additional_links = [
 				[
-					'title' => esc_html__( 'Options Panel', 'bkb_tpl' ),
-					'url'   => admin_url( 'edit.php?post_type=bwl_kb&page=edit.php%3Fpost_type%3Dbwl_kb_options_panel#bkb_tpl_settings' ), //phpcs:ignore
+					'title' => '🛠️ ' . esc_html__( 'Options Panel', 'bkb_tpl' ),
+					'url'   => BKBTPL_ADMIN_OPTIONS_PANEL_URL,
 				],
 				[
-					'title' => esc_html__( 'Docs', 'bkb_tpl' ),
-					'url'   => 'https://xenioushk.github.io/docs-plugins-addon/bkbm-addon/templify/index.html',
+					'title' => '📘 ' . esc_html__( 'Documentation', 'bkb_tpl' ),
+					'url'   => BKBTPL_PRODUCT_DOC,
+					'nt'    => 1,
+				],
+				[
+					'title' => '🛟 ' . esc_html__( 'Support', 'bwl-kb' ),
+					'url'   => BKBM_PRODUCT_SUPPORT,
 					'nt'    => 1,
 				],
 

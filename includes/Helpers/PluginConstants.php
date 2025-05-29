@@ -134,5 +134,8 @@ class PluginConstants {
 	private static function set_product_info_constants() {
 		define( 'BKBTPL_PRODUCT_ID', '11888104' ); // Plugin codecanyon/themeforest Id.
 		define( 'BKBTPL_PRODUCT_INSTALLATION_TAG', 'bkbm_tpl_installation_' . str_replace( '.', '_', BKBTPL_PLUGIN_VERSION ) );
+
+		define( 'BKBTPL_ADMIN_OPTIONS_PANEL_URL', admin_url( 'edit.php?post_type=bwl_kb&page=edit.php%3Fpost_type%3Dbwl_kb_options_panel#bkb_tpl_settings' ) );
+		define( 'BKBTPL_PRODUCT_DOC', 'https://xenioushk.github.io/docs-plugins-addon/bkbm-addon/templify/index.html' );
 	}
 }
